@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Rings of Tur"
-run/main_scene="res://main.tscn"
+run/main_scene="res://game/main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Game="*res://Global/Game.gd"
-Utils="*res://Global/Utils.gd"
+Game="*res://game/globals/Game.gd"
+Utils="*res://game/globals/Utils.gd"
 
 [display]
 
