@@ -1,55 +1,53 @@
-extends Node
+extends Node2D
+## Generic state, from which all other states will inherit ##
 class_name State
 
 
-## Variables ##
-# Learning note: Godot 3 syntax
-# var state = null setget set_state
-# Learning note: Godot 4 syntax
-var state = null : set = set_state
-var previous_state = null
-var states : Dictionary = {}
+var change_state
+var animation : AnimationPlayer
+var sprite : Sprite2D
+var persistent_state
+var jump_height = 0
 
 
-
-@onready var parent = get_parent()
-
-
-## Functions ##
-func _physics_process(delta):
-	if state != null:
-		_state_logic(delta)
-		var transition = _get_transition(delta)
-		if transition != null:
-			set_state(transition)
+"""
+This allows the states to have a default _physics_process(delta) 
+implementation where velocity is used to move the player. 
+The way that the states can modify the movement of the player 
+is to use the velocity variable defined in their base class.
+"""
+func _physics_process(_delta):
+	#persistent_state.move_and_slide(persistent_state.jump_height, Vector2.UP)
+	persistent_state.move_and_slide()
 
 
-func _state_logic(delta):
+## Assign references ##
+"""
+These references will be instantiated in the parent of this state. 
+This helps with something in programming known as cohesion. 
+The state of the player does not want the responsibility of creating 
+these variables, but does want to be able to use them. 
+However, this does make the state coupled to the state's parent. 
+This means that the state is highly reliant on whether 
+it has a parent which contains these variables. 
+So, remember that coupling and cohesion are 
+important concepts when it comes to code management.
+"""
+func setup(change_state_function, anim, sprt, persistent):
+	self.change_state = change_state_function
+	self.animation = anim
+	self.sprite = sprt
+	self.persistent_state = persistent
+
+
+## Methods for moving ##
+"""
+The state script just uses pass to show that it will not execute any 
+instructions when the methods are called
+"""
+func move_left():
 	pass
 
 
-func _get_transition(delta):
-	return null
-
-
-func _enter_state(new_state, old_state):
+func move_right():
 	pass
-
-
-func _exit_state(old_state, new_state):
-	pass
-
-
-func set_state(new_state):
-	previous_state = state
-	state = new_state
-	
-	if previous_state != null:
-		_exit_state(previous_state, new_state)
-	
-	if new_state != null:
-		_enter_state(new_state, previous_state)
-
-
-func add_state(state_name):
-	state[state_name] = states.size()

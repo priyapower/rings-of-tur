@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://86mfysrxf4yl"]
 
+[ext_resource type="Script" path="res://game/utils/persistent_state.gd" id="1_5ew12"]
 [ext_resource type="Texture2D" uid="uid://d0biltrxnqlu" path="res://game/assets/sprites/entities/player/idle/player-idle-1.png" id="1_6087u"]
-[ext_resource type="Script" path="res://game/entities/player/player.gd" id="1_mh5bu"]
 [ext_resource type="Texture2D" uid="uid://dh0vltbgrpxgb" path="res://game/assets/sprites/entities/player/idle/player-idle-2.png" id="2_1ql88"]
 [ext_resource type="Texture2D" uid="uid://ifgycxbbt4eu" path="res://game/assets/sprites/entities/player/hurt/player-hurt-1.png" id="2_4swjw"]
 [ext_resource type="Texture2D" uid="uid://c7pojf82d6oni" path="res://game/assets/sprites/entities/player/idle/player-idle-4.png" id="2_8236j"]
@@ -180,7 +180,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_mh5bu")
+script = ExtResource("1_5ew12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -11)
