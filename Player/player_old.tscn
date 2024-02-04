@@ -1,6 +1,6 @@
 [gd_scene load_steps=53 format=3 uid="uid://bp45uvm3fh4cm"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_o0qfc"]
+[ext_resource type="Script" path="res://Player/player_old.gd" id="1_o0qfc"]
 [ext_resource type="Texture2D" uid="uid://58k4opg3p64k" path="res://assets/pixel-frog/Main Characters/Pink Man/Double Jump (32x32).png" id="2_2dj61"]
 [ext_resource type="Texture2D" uid="uid://dpisovpfk6ame" path="res://assets/pixel-frog/Main Characters/Pink Man/Hit (32x32).png" id="3_glgcc"]
 [ext_resource type="Texture2D" uid="uid://b4u06hxy6dom8" path="res://assets/pixel-frog/Main Characters/Pink Man/Idle (32x32).png" id="4_dw08t"]
@@ -476,7 +476,7 @@ _data = {
 "Run": SubResource("Animation_awnb2")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="PlayerOld" type="CharacterBody2D"]
 script = ExtResource("1_o0qfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -487,6 +487,7 @@ shape = SubResource("CapsuleShape2D_b3ye0")
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_pksvm")
 animation = &"Hit"
+frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0

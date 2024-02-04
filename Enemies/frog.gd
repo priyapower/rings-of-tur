@@ -5,7 +5,7 @@ const SPEED = 75
 
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-#@onready var player = get_node("../../Player/Player")
+#@onready var player = get_node("../../PlayerOld/PlayerOld")
 var chase = false
 
 
@@ -25,8 +25,8 @@ func _physics_process(delta):
 		# Play attack animation
 		get_node("AnimatedSprite2D").play("Attack")
 		
-		# Get the Player object 
-		var player = get_node("../../Player/Player")
+		# Get the Player object
+		var player = get_node("../../PlayerOld/PlayerOld")
 		
 		# Learning note: position is the same as self.position
 		var direction = (player.position - position).normalized()
@@ -55,19 +55,19 @@ func _physics_process(delta):
 
 # If player is detected
 func _on_player_detection_body_entered(body):
-	if body.name == "Player":
+	if body.name == "PlayerOld":
 		chase = true
 
 
 # If player outside detection range
 func _on_player_detection_body_exited(body):
-	if body.name == "Player":
+	if body.name == "PlayerOld":
 		chase = false
 
 
 # If player kills sprite (jump on it)
 func _on_death_body_entered(body):
-	if body.name == "Player":
+	if body.name == "PlayerOld":
 		# Give player money
 		Game.gold += 5
 		Utils.save_game()
@@ -81,7 +81,7 @@ func _on_death_body_entered(body):
 
 # If sprite hurts player
 func _on_hurt_player_body_entered(body):
-	if body.name == "Player":
+	if body.name == "PlayerOld":
 		# Reduce player's health on collision
 		#body.health -= 1
 		#body.render_hit()

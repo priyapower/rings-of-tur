@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ctiou38krihiq" path="res://assets/pixel-frog/Terrain/Terrain (16x16).png" id="2_74oe2"]
 [ext_resource type="Texture2D" uid="uid://ctp7sybpcmrcl" path="res://assets/ansimuz/sunny-land/environment/tileset.png" id="3_pjmtf"]
 [ext_resource type="PackedScene" uid="uid://d1frxft42ejuq" path="res://LevelScene1.tscn" id="4_s7hbw"]
-[ext_resource type="PackedScene" uid="uid://bp45uvm3fh4cm" path="res://Player/player.tscn" id="5_ih8k1"]
+[ext_resource type="PackedScene" uid="uid://bp45uvm3fh4cm" path="res://Player/player_old.tscn" id="5_ih8k1"]
 [ext_resource type="PackedScene" uid="uid://ja6rkwks8rpm" path="res://Enemies/frog.tscn" id="6_r1nw2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2xmon"]
@@ -938,9 +938,9 @@ layer_0/tile_data = PackedInt32Array(1966080, 393216, 0, 1966081, 458752, 0, 196
 
 [node name="LevelScene1" parent="." instance=ExtResource("4_s7hbw")]
 
-[node name="Player" type="Node2D" parent="."]
+[node name="PlayerOld" type="Node2D" parent="."]
 
-[node name="Player" parent="Player" instance=ExtResource("5_ih8k1")]
+[node name="PlayerOld" parent="PlayerOld" instance=ExtResource("5_ih8k1")]
 position = Vector2(100, 394)
 
 [node name="Enemies" type="Node" parent="."]
