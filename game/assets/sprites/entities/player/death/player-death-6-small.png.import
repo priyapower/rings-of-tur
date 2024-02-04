@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn8bjgx2qfqow"
-path="res://.godot/imported/Appearing (96x96).png-d43a529fd308b9fd3354d78e3a5ac9ab.ctex"
+uid="uid://bgqtda83fancj"
+path="res://.godot/imported/player-death-6-small.png-b75db5c21c3362a3af2ce6b5309bad75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/assets/pixel-frog-tbd/Main Characters/Appearing (96x96).png"
-dest_files=["res://.godot/imported/Appearing (96x96).png-d43a529fd308b9fd3354d78e3a5ac9ab.ctex"]
+source_file="res://game/assets/sprites/entities/player/death/player-death-6-small.png"
+dest_files=["res://.godot/imported/player-death-6-small.png-b75db5c21c3362a3af2ce6b5309bad75.ctex"]
 
 [params]
 

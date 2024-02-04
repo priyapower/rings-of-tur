@@ -9,7 +9,7 @@ size = Vector2(162, 64)
 [node name="LevelOne" type="Node2D"]
 
 [node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2(85, 426)
+position = Vector2(2, 249)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
 position = Vector2(95, 75)
@@ -21,7 +21,7 @@ position = Vector2(95, 75)
 shape = SubResource("RectangleShape2D_k6kw7")
 
 [node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2(294, 398)
+position = Vector2(211, 221)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform2"]
 position = Vector2(95, 75)
@@ -33,7 +33,7 @@ position = Vector2(95, 75)
 shape = SubResource("RectangleShape2D_k6kw7")
 
 [node name="Platform3" type="StaticBody2D" parent="."]
-position = Vector2(456, 399)
+position = Vector2(373, 222)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform3"]
 position = Vector2(95, 75)
@@ -45,7 +45,7 @@ position = Vector2(95, 75)
 shape = SubResource("RectangleShape2D_k6kw7")
 
 [node name="Platform4" type="StaticBody2D" parent="."]
-position = Vector2(650, 355)
+position = Vector2(567, 178)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform4"]
 position = Vector2(95, 75)
@@ -57,7 +57,7 @@ position = Vector2(95, 75)
 shape = SubResource("RectangleShape2D_k6kw7")
 
 [node name="Platform5" type="StaticBody2D" parent="."]
-position = Vector2(851, 301)
+position = Vector2(749, 115)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform5"]
 position = Vector2(95, 75)
@@ -69,4 +69,4 @@ position = Vector2(95, 75)
 shape = SubResource("RectangleShape2D_k6kw7")
 
 [node name="Player" parent="." instance=ExtResource("2_n4fxo")]
-position = Vector2(149, 450)
+position = Vector2(62, 287)

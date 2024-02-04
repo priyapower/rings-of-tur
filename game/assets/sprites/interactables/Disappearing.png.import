@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jrsv4c72l3oy"
-path="res://.godot/imported/Desappearing (96x96).png-3075a90e5d5496be54ab9b20e01ae69b.ctex"
+path="res://.godot/imported/Disappearing.png-842ffec12e130a8bdd7cc80a3e55ed7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/assets/pixel-frog-tbd/Main Characters/Desappearing (96x96).png"
-dest_files=["res://.godot/imported/Desappearing (96x96).png-3075a90e5d5496be54ab9b20e01ae69b.ctex"]
+source_file="res://game/assets/sprites/interactables/Disappearing.png"
+dest_files=["res://.godot/imported/Disappearing.png-842ffec12e130a8bdd7cc80a3e55ed7b.ctex"]
 
 [params]
 

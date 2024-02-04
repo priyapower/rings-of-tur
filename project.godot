@@ -22,6 +22,8 @@ Utils="*res://game/globals/Utils.gd"
 
 [display]
 
+window/size/viewport_width=926
+window/size/viewport_height=428
 window/size/mode=2
 window/stretch/mode="viewport"
 
