@@ -2,6 +2,11 @@ extends State
 class_name RunState
 
 
+## Constants ##
+const SPEED = 200.0
+
+
+## Variables ##
 var move_speed = Vector2(180, 0)
 var min_move_speed = 0.005
 var friction = 0.32
@@ -19,27 +24,38 @@ use the normal inheritance rules of overriding the base implementation.
 """
 func _ready():
 	animation.play("Run")
-	if sprite.flip_h:
-		move_speed.x *= -1
-	persistent_state.jump_height += move_speed
+	#if sprite.flip_h:
+		#move_speed.x *= -1
+	#persistent_state.jump_height += move_speed
 
 
 func _physics_process(_delta):
-	if abs(persistent_state.velocity.x) < min_move_speed:
+	if persistent_state.velocity.x == 0:
 		change_state.call("idle")
 	
-	persistent_state.jump_height.x *= friction
+	#persistent_state.jump_height.x *= friction
 
 
 func move_left():
-	if sprite.flip_h:
-		persistent_state.jump_height += move_speed
+	print("outside left", persistent_state.velocity.x)
+	if sprite.scale.x == -1:
+		#persistent_state.jump_height += move_speed
+		print("RUN LEFT")
+		print("inside", persistent_state.velocity.x)
+		print("speed", SPEED)
+		print(-1 * SPEED)
+		persistent_state.velocity.x = -1 * SPEED
 	else:
 		change_state.call("idle")
 
 
 func move_right():
-	if not sprite.flip_h:
-		persistent_state.jump_height += move_speed
+	print("outside right", persistent_state.velocity.x)
+	if sprite.scale.x == 1:
+		#persistent_state.jump_height += move_speed
+		print("RUN RIGHT")
+		print("inside", persistent_state.velocity.x)
+		print("speed", SPEED)
+		persistent_state.velocity.x = SPEED
 	else:
 		change_state.call("idle")

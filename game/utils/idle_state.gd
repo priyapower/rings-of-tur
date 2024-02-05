@@ -23,16 +23,14 @@ func _flip_direction():
 
 
 func move_left():
-	#if sprite.scale.x == 1:
-	if sprite.flip_h:
+	if sprite.scale.x == -1:
 		change_state.call("run")
 	else:
 		_flip_direction()
 
 
 func move_right():
-	#if sprite.scale.x == -1:
-	if not sprite.flip_h:
+	if sprite.scale.x == 1:
 		change_state.call("run")
 	else:
 		_flip_direction()
