@@ -1,3 +1,4 @@
+# Idling state
 extends State
 
 @export var fall_state: State

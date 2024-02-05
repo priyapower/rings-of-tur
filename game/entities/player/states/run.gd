@@ -1,4 +1,4 @@
-# Run state
+# Running state
 extends State
 
 @export var fall_state: State
