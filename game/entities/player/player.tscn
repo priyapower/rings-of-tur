@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://86mfysrxf4yl"]
+[gd_scene load_steps=46 format=3 uid="uid://86mfysrxf4yl"]
 
 [ext_resource type="Texture2D" uid="uid://d0biltrxnqlu" path="res://game/assets/sprites/entities/player/idle/player-idle-1.png" id="1_6087u"]
 [ext_resource type="Script" path="res://game/entities/player/player.gd" id="1_idvwh"]
@@ -32,6 +32,9 @@
 [ext_resource type="Script" path="res://game/entities/player/states/jump.gd" id="30_3e2i7"]
 [ext_resource type="Script" path="res://game/entities/player/states/crouch.gd" id="30_3kgpe"]
 [ext_resource type="Script" path="res://game/entities/player/states/run.gd" id="31_ce8ac"]
+[ext_resource type="Script" path="res://game/entities/player/states/climb.gd" id="31_twf5q"]
+[ext_resource type="Script" path="res://game/entities/player/states/hurt.gd" id="34_pjsuh"]
+[ext_resource type="Script" path="res://game/entities/player/states/death.gd" id="35_oo21h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vsaab"]
 radius = 9.0
@@ -206,11 +209,12 @@ autoplay = "Idle"
 script = ExtResource("27_vp2t3")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "run_state")]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "run_state", "crouch_state")]
 script = ExtResource("29_qe3kn")
 fall_state = NodePath("../Fall")
 jump_state = NodePath("../Jump")
 run_state = NodePath("../Run")
+crouch_state = NodePath("../Crouch")
 animation_name = "Idle"
 
 [node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "jump_state")]
@@ -222,8 +226,11 @@ animation_name = "Run"
 
 [node name="Crouch" type="Node" parent="StateMachine"]
 script = ExtResource("30_3kgpe")
+animation_name = "Crouch"
+run_speed = 200.0
 
 [node name="Climb" type="Node" parent="StateMachine"]
+script = ExtResource("31_twf5q")
 
 [node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "run_state")]
 script = ExtResource("30_3e2i7")
@@ -238,5 +245,7 @@ run_state = NodePath("../Run")
 animation_name = "Fall"
 
 [node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("34_pjsuh")
 
 [node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("35_oo21h")

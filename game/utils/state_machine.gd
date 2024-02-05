@@ -6,8 +6,10 @@ var current_state: State
 
 # Initialize the state machine by giving each child state a reference to the
 # parent object it belongs to and enter the default starting_state.
-func init(parent: Player) -> void:
+func init(parent) -> void:
+	print("parent: ", parent)
 	for child in get_children():
+		print("child: ", child)
 		child.parent = parent
 
 	# Initialize to the default state

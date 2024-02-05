@@ -4,6 +4,7 @@ extends State
 @export var fall_state: State
 @export var jump_state: State
 @export var run_state: State
+@export var crouch_state: State
 
 func enter() -> void:
 	super()
@@ -32,6 +33,8 @@ func process_physics(delta: float) -> State:
 	if parent.is_on_floor():
 		if no_vertical_movement && horizontal_direction != 0:
 			return run_state
+		if Input.is_action_just_pressed('crouch'): 
+			return crouch_state
 		if Input.is_action_just_pressed('jump'):
 			return jump_state
 

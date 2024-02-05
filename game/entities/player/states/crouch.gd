@@ -30,7 +30,8 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	print("CROUCH", delta)
 	# Gravity?
 	# Handles horizontal movement
-	# Speed shouldn't be the same as run speed
+	# Speed shouldn't be the same as run speed - update exported var for this Node!
 	return null
