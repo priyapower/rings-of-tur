@@ -1,0 +1,2 @@
+# Crouching state
+extends State

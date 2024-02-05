@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://86mfysrxf4yl"]
+[gd_scene load_steps=43 format=3 uid="uid://86mfysrxf4yl"]
 
 [ext_resource type="Texture2D" uid="uid://d0biltrxnqlu" path="res://game/assets/sprites/entities/player/idle/player-idle-1.png" id="1_6087u"]
 [ext_resource type="Script" path="res://game/entities/player/player.gd" id="1_idvwh"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://game/entities/player/states/fall.gd" id="28_4bn7t"]
 [ext_resource type="Script" path="res://game/entities/player/states/idle.gd" id="29_qe3kn"]
 [ext_resource type="Script" path="res://game/entities/player/states/jump.gd" id="30_3e2i7"]
+[ext_resource type="Script" path="res://game/entities/player/states/crouch.gd" id="30_3kgpe"]
 [ext_resource type="Script" path="res://game/entities/player/states/run.gd" id="31_ce8ac"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vsaab"]
@@ -220,6 +221,7 @@ jump_state = NodePath("../Jump")
 animation_name = "Run"
 
 [node name="Crouch" type="Node" parent="StateMachine"]
+script = ExtResource("30_3kgpe")
 
 [node name="Climb" type="Node" parent="StateMachine"]
 
