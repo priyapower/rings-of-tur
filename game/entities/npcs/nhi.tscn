@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://db10ogdiwsi3t"]
+
+[ext_resource type="Texture2D" uid="uid://xltnj4n5e6l3" path="res://game/assets/gif-superretroworld-tbd/sprite/free_character_1-3.png" id="1_pik0a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lb73p"]
+radius = 8.0
+height = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm5bd"]
+atlas = ExtResource("1_pik0a")
+region = Rect2(112, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ppka"]
+atlas = ExtResource("1_pik0a")
+region = Rect2(128, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfhbx"]
+atlas = ExtResource("1_pik0a")
+region = Rect2(96, 40, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pfyp"]
+atlas = ExtResource("1_pik0a")
+region = Rect2(112, 40, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bapol"]
+atlas = ExtResource("1_pik0a")
+region = Rect2(128, 40, 16, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xga5a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm5bd")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_8ppka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm5bd")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfhbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pfyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bapol")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[node name="Nhi" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("CapsuleShape2D_lb73p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -10)
+sprite_frames = SubResource("SpriteFrames_xga5a")
+animation = &"Idle"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b1bfqq1r5svph"
+path="res://.godot/imported/Going Up.ogg-3d85694e04b64801dd9d8153140e3e9c.oggvorbisstr"
+
+[deps]
+
+source_file="res://game/assets/ansimuz-tbd/Music by Ansimuz/Going Up.ogg"
+dest_files=["res://.godot/imported/Going Up.ogg-3d85694e04b64801dd9d8153140e3e9c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

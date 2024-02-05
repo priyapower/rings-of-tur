@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://pvkjswpreqeg"
+path="res://.godot/imported/up_and_right.ogg-8e37991214da7c94797a7b4ed35ec676.oggvorbisstr"
+
+[deps]
+
+source_file="res://game/assets/ansimuz-tbd/Music by Ansimuz/up_and_right.ogg"
+dest_files=["res://.godot/imported/up_and_right.ogg-8e37991214da7c94797a7b4ed35ec676.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
