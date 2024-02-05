@@ -1,7 +1,6 @@
 extends Node
 
-@export
-var starting_state: State
+@export var starting_state: State
 
 var current_state: State
 
@@ -20,6 +19,7 @@ func change_state(new_state: State) -> void:
 	if current_state:
 		current_state.exit()
 
+	print("new_state: ", new_state)
 	current_state = new_state
 	current_state.enter()
 	

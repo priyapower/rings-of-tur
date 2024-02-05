@@ -193,7 +193,7 @@ shape = SubResource("CapsuleShape2D_vsaab")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -16)
-texture = ExtResource("17_qp62f")
+texture = ExtResource("1_6087u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -218,10 +218,9 @@ jump_state = NodePath("../Jump")
 run_state = NodePath("../Run")
 animation_name = "Idle"
 
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "run_state")]
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "run_state")]
 script = ExtResource("30_3e2i7")
 fall_state = NodePath("../Fall")
-idle_state = NodePath("../Idle")
 run_state = NodePath("../Run")
 animation_name = "Jump"
 

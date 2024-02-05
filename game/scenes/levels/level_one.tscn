@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2b2s0g2crv5p"]
+[gd_scene load_steps=5 format=3 uid="uid://b2b2s0g2crv5p"]
 
 [ext_resource type="Texture2D" uid="uid://b1ymxdbr5gyq6" path="res://game/assets/ansimuz-tbd/sunny-land/environment/Props/platform-long.png" id="1_hwiph"]
 [ext_resource type="PackedScene" uid="uid://86mfysrxf4yl" path="res://game/entities/player/player.tscn" id="2_n4fxo"]
@@ -6,10 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6kw7"]
 size = Vector2(162, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncr7r"]
+size = Vector2(927, 192)
+
 [node name="LevelOne" type="Node2D"]
 
 [node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2(2, 249)
+position = Vector2(575, 703)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
 position = Vector2(95, 75)
@@ -21,7 +24,7 @@ position = Vector2(95, 75)
 shape = SubResource("RectangleShape2D_k6kw7")
 
 [node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2(211, 221)
+position = Vector2(784, 675)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform2"]
 position = Vector2(95, 75)
@@ -33,7 +36,7 @@ position = Vector2(95, 75)
 shape = SubResource("RectangleShape2D_k6kw7")
 
 [node name="Platform3" type="StaticBody2D" parent="."]
-position = Vector2(373, 222)
+position = Vector2(948, 675)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform3"]
 position = Vector2(95, 75)
@@ -44,8 +47,20 @@ texture = ExtResource("1_hwiph")
 position = Vector2(95, 75)
 shape = SubResource("RectangleShape2D_k6kw7")
 
+[node name="FullPlatform" type="StaticBody2D" parent="."]
+position = Vector2(469, 455)
+
+[node name="Sprite2D" type="Sprite2D" parent="FullPlatform"]
+position = Vector2(-1.62503, -128.438)
+scale = Vector2(28.8516, 12.1953)
+texture = ExtResource("1_hwiph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FullPlatform"]
+position = Vector2(-3, -129)
+shape = SubResource("RectangleShape2D_ncr7r")
+
 [node name="Platform4" type="StaticBody2D" parent="."]
-position = Vector2(567, 178)
+position = Vector2(1140, 632)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform4"]
 position = Vector2(95, 75)
@@ -57,7 +72,7 @@ position = Vector2(95, 75)
 shape = SubResource("RectangleShape2D_k6kw7")
 
 [node name="Platform5" type="StaticBody2D" parent="."]
-position = Vector2(749, 115)
+position = Vector2(1322, 569)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform5"]
 position = Vector2(95, 75)
@@ -69,4 +84,4 @@ position = Vector2(95, 75)
 shape = SubResource("RectangleShape2D_k6kw7")
 
 [node name="Player" parent="." instance=ExtResource("2_n4fxo")]
-position = Vector2(62, 287)
+position = Vector2(115, 45)
