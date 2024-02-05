@@ -1,7 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://86mfysrxf4yl"]
+[gd_scene load_steps=42 format=3 uid="uid://86mfysrxf4yl"]
 
-[ext_resource type="Script" path="res://game/utils/persistent_state.gd" id="1_5ew12"]
 [ext_resource type="Texture2D" uid="uid://d0biltrxnqlu" path="res://game/assets/sprites/entities/player/idle/player-idle-1.png" id="1_6087u"]
+[ext_resource type="Script" path="res://game/entities/player/player.gd" id="1_idvwh"]
 [ext_resource type="Texture2D" uid="uid://dh0vltbgrpxgb" path="res://game/assets/sprites/entities/player/idle/player-idle-2.png" id="2_1ql88"]
 [ext_resource type="Texture2D" uid="uid://ifgycxbbt4eu" path="res://game/assets/sprites/entities/player/hurt/player-hurt-1.png" id="2_4swjw"]
 [ext_resource type="Texture2D" uid="uid://c7pojf82d6oni" path="res://game/assets/sprites/entities/player/idle/player-idle-4.png" id="2_8236j"]
@@ -26,31 +26,19 @@
 [ext_resource type="Texture2D" uid="uid://cva5kijk3rkvy" path="res://game/assets/sprites/entities/player/death/player-death-5-small.png" id="25_f3y58"]
 [ext_resource type="Texture2D" uid="uid://bgqtda83fancj" path="res://game/assets/sprites/entities/player/death/player-death-6-small.png" id="26_keevl"]
 [ext_resource type="Texture2D" uid="uid://l0dlojcyrrkc" path="res://game/assets/sprites/entities/player/death/player-death-7-small.png" id="27_6fto3"]
+[ext_resource type="Script" path="res://game/utils/state_machine.gd" id="27_vp2t3"]
+[ext_resource type="Script" path="res://game/entities/player/states/fall.gd" id="28_4bn7t"]
+[ext_resource type="Script" path="res://game/entities/player/states/idle.gd" id="29_qe3kn"]
+[ext_resource type="Script" path="res://game/entities/player/states/jump.gd" id="30_3e2i7"]
+[ext_resource type="Script" path="res://game/entities/player/states/run.gd" id="31_ce8ac"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vsaab"]
 radius = 9.0
 height = 22.0
 
-[sub_resource type="Animation" id="Animation_rxqpc"]
-resource_name = "Idle"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("1_6087u"), ExtResource("2_1ql88"), ExtResource("3_tfgsa"), ExtResource("2_8236j"), ExtResource("1_6087u")]
-}
-
-[sub_resource type="Animation" id="Animation_m5hqd"]
-resource_name = "Fall"
-length = 0.1
+[sub_resource type="Animation" id="Animation_6pp6b"]
+resource_name = "Climb"
+length = 0.3
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -59,61 +47,10 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("7_2m1ga")]
-}
-
-[sub_resource type="Animation" id="Animation_tcf31"]
-resource_name = "Run"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("7_6dn4m"), ExtResource("2_diufm"), ExtResource("7_6dn4m"), ExtResource("8_8skhi"), ExtResource("9_gijos"), ExtResource("10_lwd37")]
-}
-
-[sub_resource type="Animation" id="Animation_1x2ya"]
-resource_name = "Jump"
-length = 0.1
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("13_anvpl")]
-}
-
-[sub_resource type="Animation" id="Animation_ii8cg"]
-resource_name = "Hurt"
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("2_4swjw"), ExtResource("14_mwtrp")]
+"values": [ExtResource("17_qp62f"), ExtResource("18_76j4n"), ExtResource("19_pa1hn")]
 }
 
 [sub_resource type="Animation" id="Animation_bdq4b"]
@@ -133,23 +70,6 @@ tracks/0/keys = {
 "values": [ExtResource("15_j683v"), ExtResource("16_rf6su")]
 }
 
-[sub_resource type="Animation" id="Animation_6pp6b"]
-resource_name = "Climb"
-length = 0.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("17_qp62f"), ExtResource("18_76j4n"), ExtResource("19_pa1hn")]
-}
-
 [sub_resource type="Animation" id="Animation_kvx1w"]
 resource_name = "Death"
 length = 0.7
@@ -167,6 +87,91 @@ tracks/0/keys = {
 "values": [ExtResource("21_q75kb"), ExtResource("22_gnb1v"), ExtResource("23_6ggr4"), ExtResource("24_popkt"), ExtResource("25_f3y58"), ExtResource("26_keevl"), ExtResource("27_6fto3")]
 }
 
+[sub_resource type="Animation" id="Animation_m5hqd"]
+resource_name = "Fall"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_2m1ga")]
+}
+
+[sub_resource type="Animation" id="Animation_ii8cg"]
+resource_name = "Hurt"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_4swjw"), ExtResource("14_mwtrp")]
+}
+
+[sub_resource type="Animation" id="Animation_rxqpc"]
+resource_name = "Idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_6087u"), ExtResource("2_1ql88"), ExtResource("3_tfgsa"), ExtResource("2_8236j"), ExtResource("1_6087u")]
+}
+
+[sub_resource type="Animation" id="Animation_1x2ya"]
+resource_name = "Jump"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_anvpl")]
+}
+
+[sub_resource type="Animation" id="Animation_tcf31"]
+resource_name = "Run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_6dn4m"), ExtResource("2_diufm"), ExtResource("7_6dn4m"), ExtResource("8_8skhi"), ExtResource("9_gijos"), ExtResource("10_lwd37")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_80wvu"]
 _data = {
 "Climb": SubResource("Animation_6pp6b"),
@@ -180,7 +185,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_5ew12")
+script = ExtResource("1_idvwh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -11)
@@ -188,10 +193,41 @@ shape = SubResource("CapsuleShape2D_vsaab")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -16)
-texture = ExtResource("21_q75kb")
+texture = ExtResource("17_qp62f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_80wvu")
 }
 autoplay = "Idle"
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("27_vp2t3")
+starting_state = NodePath("Idle")
+
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "run_state")]
+script = ExtResource("28_4bn7t")
+idle_state = NodePath("../Idle")
+run_state = NodePath("../Run")
+animation_name = "Fall"
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "run_state")]
+script = ExtResource("29_qe3kn")
+fall_state = NodePath("../Fall")
+jump_state = NodePath("../Jump")
+run_state = NodePath("../Run")
+animation_name = "Idle"
+
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "run_state")]
+script = ExtResource("30_3e2i7")
+fall_state = NodePath("../Fall")
+idle_state = NodePath("../Idle")
+run_state = NodePath("../Run")
+animation_name = "Jump"
+
+[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "jump_state")]
+script = ExtResource("31_ce8ac")
+fall_state = NodePath("../Fall")
+idle_state = NodePath("../Idle")
+jump_state = NodePath("../Jump")
+animation_name = "Run"
