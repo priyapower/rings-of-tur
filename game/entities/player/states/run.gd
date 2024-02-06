@@ -30,7 +30,7 @@ func process_physics(delta: float) -> State:
 	if (no_vertical_movement && horizontal_direction == 0):
 		move_toward(parent.velocity.x, 0, run_speed)
 		return idle_state
-	if Input.is_action_just_pressed('jump'):
+	if Input.is_action_just_pressed('up'):
 		return jump_state
 	if !parent.is_on_floor() && parent.velocity.y > 0 && !parent.is_on_ceiling():
 		return fall_state

@@ -35,7 +35,7 @@ func process_physics(delta: float) -> State:
 			return run_state
 		if Input.is_action_just_pressed('crouch'): 
 			return crouch_state
-		if Input.is_action_just_pressed('jump'):
+		if Input.is_action_just_pressed('up'):
 			return jump_state
 
 	else:

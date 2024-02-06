@@ -23,6 +23,9 @@ extends State
 #@export var run_state: State
 #@export var jump_state: State
 
+### Crouch variables ##
+#@onready var ray_cast: RayCast2D = $RayCastCrouch
+
 
 func process_input(event: InputEvent) -> State:
 	# Handle sprite direction
@@ -34,7 +37,6 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	print("CROUCH", delta)
 	var horizontal_direction = Input.get_axis('left', 'right')
 	var no_vertical_movement = parent.velocity.y == 0
 	
@@ -47,6 +49,8 @@ func process_physics(delta: float) -> State:
 		parent.move_and_slide()
 	
 	# Handle state transitions
+	if !parent.ray_cast.is_colliding() && Input.is_action_just_pressed('up'):
+		return idle_state
 	# WE NEED A CONDITION TO CHECK NO CEILING
 	#if (no_vertical_movement && horizontal_direction == 0 && Input.is_action_just_pressed == "up"):
 		#move_toward(parent.velocity.x, 0, run_speed)

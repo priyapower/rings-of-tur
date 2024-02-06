@@ -1,12 +1,10 @@
 class_name Player
 extends CharacterBody2D
 
-@onready
-var animation : AnimationPlayer = $AnimationPlayer
-@onready
-var sprite : Sprite2D = $Sprite2D
-@onready
-var state_machine = $StateMachine
+@onready var animation : AnimationPlayer = $AnimationPlayer
+@onready var sprite : Sprite2D = $Sprite2D
+@onready var state_machine = $StateMachine
+@onready var ray_cast = $RayCastCrouch
 
 func _ready() -> void:
 	# Initialize the state machine, passing a reference of the player to the states,

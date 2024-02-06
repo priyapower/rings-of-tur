@@ -502,8 +502,12 @@ script = ExtResource("1_idvwh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -16)
-texture = ExtResource("1_6087u")
+texture = ExtResource("15_j683v")
 metadata/_edit_lock_ = true
+
+[node name="RayCastCrouch" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(0, -15)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
@@ -539,8 +543,9 @@ idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
 animation_name = "Run"
 
-[node name="Crouch" type="Node" parent="StateMachine"]
+[node name="Crouch" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("30_3kgpe")
+idle_state = NodePath("../Idle")
 animation_name = "Crouch"
 run_speed = 150.0
 
