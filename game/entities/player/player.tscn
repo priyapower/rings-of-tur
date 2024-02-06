@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://86mfysrxf4yl"]
+[gd_scene load_steps=52 format=3 uid="uid://86mfysrxf4yl"]
 
 [ext_resource type="Texture2D" uid="uid://d0biltrxnqlu" path="res://game/assets/sprites/entities/player/idle/player-idle-1.png" id="1_6087u"]
 [ext_resource type="Script" path="res://game/entities/player/player.gd" id="1_idvwh"]
@@ -36,9 +36,12 @@
 [ext_resource type="Script" path="res://game/entities/player/states/hurt.gd" id="34_pjsuh"]
 [ext_resource type="Script" path="res://game/entities/player/states/death.gd" id="35_oo21h"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vsaab"]
-radius = 9.0
-height = 22.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15txp"]
+radius = 7.5
+height = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frk3w"]
+size = Vector2(18, 14)
 
 [sub_resource type="Animation" id="Animation_6pp6b"]
 resource_name = "Climb"
@@ -56,6 +59,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("17_qp62f"), ExtResource("18_76j4n"), ExtResource("19_pa1hn")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_15txp")]
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayk8o"]
+size = Vector2(18, 14)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xosck"]
+radius = 7.5
+height = 20.0
 
 [sub_resource type="Animation" id="Animation_bdq4b"]
 resource_name = "Crouch"
@@ -72,6 +94,78 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("15_j683v"), ExtResource("16_rf6su")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionCrouch:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_ayk8o")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionCrouch:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionCrouch:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Collision:shape")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_xosck")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Collision:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Collision:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_kvx1w"]
@@ -90,6 +184,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("21_q75kb"), ExtResource("22_gnb1v"), ExtResource("23_6ggr4"), ExtResource("24_popkt"), ExtResource("25_f3y58"), ExtResource("26_keevl"), ExtResource("27_6fto3")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_15txp")]
+}
 
 [sub_resource type="Animation" id="Animation_m5hqd"]
 resource_name = "Fall"
@@ -106,6 +212,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("7_2m1ga")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_15txp")]
 }
 
 [sub_resource type="Animation" id="Animation_ii8cg"]
@@ -124,6 +242,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_4swjw"), ExtResource("14_mwtrp")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_15txp")]
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ikdu"]
+radius = 7.5
+height = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiifb"]
+size = Vector2(18, 14)
 
 [sub_resource type="Animation" id="Animation_rxqpc"]
 resource_name = "Idle"
@@ -140,6 +277,78 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("1_6087u"), ExtResource("2_1ql88"), ExtResource("3_tfgsa"), ExtResource("2_8236j"), ExtResource("1_6087u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_6ikdu")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionCrouch:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_iiifb")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionCrouch:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionCrouch:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Collision:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Collision:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_1x2ya"]
@@ -158,6 +367,93 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("13_anvpl")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_15txp")]
+}
+
+[sub_resource type="Animation" id="Animation_0ev57"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionCrouch:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_frk3w")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_15txp")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionCrouch:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionCrouch:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Collision:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Collision:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_tcf31"]
 resource_name = "Run"
@@ -175,6 +471,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("7_6dn4m"), ExtResource("2_diufm"), ExtResource("7_6dn4m"), ExtResource("8_8skhi"), ExtResource("9_gijos"), ExtResource("10_lwd37")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision:shape")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_15txp")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_80wvu"]
 _data = {
@@ -185,19 +493,26 @@ _data = {
 "Hurt": SubResource("Animation_ii8cg"),
 "Idle": SubResource("Animation_rxqpc"),
 "Jump": SubResource("Animation_1x2ya"),
+"RESET": SubResource("Animation_0ev57"),
 "Run": SubResource("Animation_tcf31")
 }
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_idvwh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11)
-shape = SubResource("CapsuleShape2D_vsaab")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -16)
 texture = ExtResource("1_6087u")
+metadata/_edit_lock_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_15txp")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CollisionCrouch" type="CollisionShape2D" parent="."]
+position = Vector2(2, -7)
+shape = SubResource("RectangleShape2D_frk3w")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -227,7 +542,7 @@ animation_name = "Run"
 [node name="Crouch" type="Node" parent="StateMachine"]
 script = ExtResource("30_3kgpe")
 animation_name = "Crouch"
-run_speed = 200.0
+run_speed = 150.0
 
 [node name="Climb" type="Node" parent="StateMachine"]
 script = ExtResource("31_twf5q")

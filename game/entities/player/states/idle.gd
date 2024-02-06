@@ -40,7 +40,7 @@ func process_physics(delta: float) -> State:
 
 	else:
 		# Handle state transitions (if player starts above ground)
-		if parent.velocity.y >= 0:
+		if parent.velocity.y >= 0 && !parent.is_on_ceiling():
 			return fall_state
 		
 	return null

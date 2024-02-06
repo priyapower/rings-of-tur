@@ -40,7 +40,7 @@ func process_physics(delta: float) -> State:
 		if no_vertical_movement && (Input.is_action_just_pressed('left') || Input.is_action_just_pressed('right')):
 			return run_state
 	else:
-		if (parent.velocity.y > 0):
+		if (parent.velocity.y > 0) && !parent.is_on_ceiling():
 			return fall_state
 	
 	return null

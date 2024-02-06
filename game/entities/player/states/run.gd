@@ -21,7 +21,7 @@ func process_physics(delta: float) -> State:
 	# Add the gravity
 	parent.velocity.y += gravity * delta
 	
-	# Handle jump
+	# Handle run
 	if horizontal_direction != 0:
 		parent.velocity.x = horizontal_direction * run_speed
 		parent.move_and_slide()
@@ -32,7 +32,7 @@ func process_physics(delta: float) -> State:
 		return idle_state
 	if Input.is_action_just_pressed('jump'):
 		return jump_state
-	if !parent.is_on_floor() && parent.velocity.y > 0:
+	if !parent.is_on_floor() && parent.velocity.y > 0 && !parent.is_on_ceiling():
 		return fall_state
 	
 	return null
