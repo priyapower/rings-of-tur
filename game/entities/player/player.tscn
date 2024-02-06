@@ -536,11 +536,12 @@ run_state = NodePath("../Run")
 crouch_state = NodePath("../Crouch")
 animation_name = "Idle"
 
-[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "jump_state")]
+[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "jump_state", "crouch_state")]
 script = ExtResource("31_ce8ac")
 fall_state = NodePath("../Fall")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
+crouch_state = NodePath("../Crouch")
 animation_name = "Run"
 
 [node name="Crouch" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
@@ -552,9 +553,10 @@ run_speed = 150.0
 [node name="Climb" type="Node" parent="StateMachine"]
 script = ExtResource("31_twf5q")
 
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "run_state")]
+[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "run_state")]
 script = ExtResource("30_3e2i7")
 fall_state = NodePath("../Fall")
+idle_state = NodePath("../Idle")
 run_state = NodePath("../Run")
 animation_name = "Jump"
 

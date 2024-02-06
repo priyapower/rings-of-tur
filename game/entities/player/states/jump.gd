@@ -7,7 +7,7 @@ extends State
 @export var run_state: State
 
 ## Jump variables ##
-@export var jump_force: float = 400.0
+@export var jump_force: float = 410.0
 
 func enter() -> void:
 	super()

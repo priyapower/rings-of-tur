@@ -33,7 +33,7 @@ func process_physics(delta: float) -> State:
 	if parent.is_on_floor():
 		if no_vertical_movement && horizontal_direction != 0:
 			return run_state
-		if Input.is_action_just_pressed('crouch'): 
+		if Input.is_action_just_pressed('down'): 
 			return crouch_state
 		if Input.is_action_just_pressed('up'):
 			return jump_state
