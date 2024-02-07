@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://rq2q5kim3uea"]
 
-[ext_resource type="Texture2D" uid="uid://eolghl2udd4r" path="res://game/assets/pixel-frog-tbd/Enemies/Bunny/Idle (34x44).png" id="1_bb2r4"]
-[ext_resource type="Texture2D" uid="uid://bewcmrdl25bpn" path="res://game/assets/pixel-frog-tbd/Enemies/Bunny/Run (34x44).png" id="2_e4u3g"]
+[ext_resource type="Texture2D" uid="uid://eolghl2udd4r" path="res://game/assets/sprites/Enemies/Bunny/Idle (34x44).png" id="1_bb2r4"]
+[ext_resource type="Texture2D" uid="uid://bewcmrdl25bpn" path="res://game/assets/sprites/Enemies/Bunny/Run (34x44).png" id="2_e4u3g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lb73p"]
 radius = 11.0

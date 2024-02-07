@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://c0u6ta46ve48u"]
 
-[ext_resource type="Texture2D" uid="uid://d0yspmrrjiule" path="res://game/assets/pixel-frog-tbd/Enemies/Bee/Attack (36x34).png" id="1_tk1o5"]
-[ext_resource type="Texture2D" uid="uid://bodwgwmmhksoc" path="res://game/assets/pixel-frog-tbd/Enemies/Bee/Idle (36x34).png" id="2_smlpr"]
+[ext_resource type="Texture2D" uid="uid://d0yspmrrjiule" path="res://game/assets/sprites/Enemies/Bee/Attack (36x34).png" id="1_tk1o5"]
+[ext_resource type="Texture2D" uid="uid://bodwgwmmhksoc" path="res://game/assets/sprites/Enemies/Bee/Idle (36x34).png" id="2_smlpr"]
 [ext_resource type="Texture2D" uid="uid://q8qliiwv07fm" path="res://game/assets/sprites/spritesheets/enemy-deadth.png" id="2_w5u2b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lb73p"]
