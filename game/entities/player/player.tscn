@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://86mfysrxf4yl"]
+[gd_scene load_steps=48 format=3 uid="uid://86mfysrxf4yl"]
 
 [ext_resource type="Texture2D" uid="uid://d0biltrxnqlu" path="res://game/assets/sprites/entities/player/idle/player-idle-1.png" id="1_6087u"]
 [ext_resource type="Script" path="res://game/entities/player/player.gd" id="1_idvwh"]
@@ -27,14 +27,10 @@
 [ext_resource type="Texture2D" uid="uid://bgqtda83fancj" path="res://game/assets/sprites/entities/player/death/player-death-6-small.png" id="26_keevl"]
 [ext_resource type="Texture2D" uid="uid://l0dlojcyrrkc" path="res://game/assets/sprites/entities/player/death/player-death-7-small.png" id="27_6fto3"]
 [ext_resource type="Script" path="res://game/utils/state_machine.gd" id="27_vp2t3"]
-[ext_resource type="Script" path="res://game/entities/player/states/fall.gd" id="28_4bn7t"]
-[ext_resource type="Script" path="res://game/entities/player/states/idle.gd" id="29_qe3kn"]
-[ext_resource type="Script" path="res://game/entities/player/states/jump.gd" id="30_3e2i7"]
-[ext_resource type="Script" path="res://game/entities/player/states/crouch.gd" id="30_3kgpe"]
-[ext_resource type="Script" path="res://game/entities/player/states/run.gd" id="31_ce8ac"]
-[ext_resource type="Script" path="res://game/entities/player/states/climb.gd" id="31_twf5q"]
-[ext_resource type="Script" path="res://game/entities/player/states/hurt.gd" id="34_pjsuh"]
-[ext_resource type="Script" path="res://game/entities/player/states/death.gd" id="35_oo21h"]
+[ext_resource type="Script" path="res://game/entities/player/states/jumping_jump_state.gd" id="28_4w65u"]
+[ext_resource type="Script" path="res://game/entities/player/states/double_jumping_jump_state.gd" id="29_0y5x8"]
+[ext_resource type="Script" path="res://game/entities/player/states/idling_jump_state.gd" id="29_qx5x2"]
+[ext_resource type="Script" path="res://game/entities/player/states/falling_jump_state.gd" id="31_slw7k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15txp"]
 radius = 7.5
@@ -502,7 +498,7 @@ script = ExtResource("1_idvwh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -16)
-texture = ExtResource("2_1ql88")
+texture = ExtResource("1_6087u")
 metadata/_edit_lock_ = true
 
 [node name="RayCastCrouch" type="RayCast2D" parent="."]
@@ -524,49 +520,20 @@ libraries = {
 }
 autoplay = "Idle"
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+[node name="JumpStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("27_vp2t3")
-starting_state = NodePath("Idle")
+current_state = NodePath("IdlingJumpState")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "run_state", "crouch_state")]
-script = ExtResource("29_qe3kn")
-fall_state = NodePath("../Fall")
-jump_state = NodePath("../Jump")
-run_state = NodePath("../Run")
-crouch_state = NodePath("../Crouch")
-animation_name = "Idle"
-
-[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "jump_state", "crouch_state")]
-script = ExtResource("31_ce8ac")
-fall_state = NodePath("../Fall")
-idle_state = NodePath("../Idle")
-jump_state = NodePath("../Jump")
-crouch_state = NodePath("../Crouch")
-animation_name = "Run"
-
-[node name="Crouch" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
-script = ExtResource("30_3kgpe")
-idle_state = NodePath("../Idle")
-animation_name = "Crouch"
-
-[node name="Climb" type="Node" parent="StateMachine"]
-script = ExtResource("31_twf5q")
-
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "run_state")]
-script = ExtResource("30_3e2i7")
-fall_state = NodePath("../Fall")
-idle_state = NodePath("../Idle")
-run_state = NodePath("../Run")
+[node name="JumpingJumpState" type="Node" parent="JumpStateMachine"]
+script = ExtResource("28_4w65u")
 animation_name = "Jump"
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "run_state")]
-script = ExtResource("28_4bn7t")
-idle_state = NodePath("../Idle")
-run_state = NodePath("../Run")
-animation_name = "Fall"
+[node name="DoubleJumpingJumpState" type="Node" parent="JumpStateMachine"]
+script = ExtResource("29_0y5x8")
 
-[node name="Hurt" type="Node" parent="StateMachine"]
-script = ExtResource("34_pjsuh")
+[node name="IdlingJumpState" type="Node" parent="JumpStateMachine"]
+script = ExtResource("29_qx5x2")
+animation_name = "Idle"
 
-[node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource("35_oo21h")
+[node name="FallingJumpState" type="Node" parent="JumpStateMachine"]
+script = ExtResource("31_slw7k")
