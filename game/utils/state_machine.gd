@@ -34,127 +34,37 @@ extends Node
 ##     - jumping_jump_state.gd must `extends State`
 
 
-### CUSTOMIZABLE VARS
-#@export var starting_state: State
-#
-### LOCAL VARS
-#var previous_state: State
-#var current_state: State
-#
-#
-## Initialize the state machine by giving each child state a reference to the
-## parent object it belongs to and enter the default starting_state.
-#func init(parent) -> void:
-	#for child in get_children():
-		#child.parent = parent
-#
-	## Initialize to the default state
-	#change_state(starting_state)
-#
-## Change to the new state by first calling any exit logic on the current state.
-#func change_state(new_state: State) -> void:
-	#print("IN CHANGE STATE")
-	#print("new_state: ", new_state)
-	#print("current_state: ", current_state)
-	#print("previous_state: ", previous_state)
-	#if current_state:
-		#current_state.exit()
-	#
-	#previous_state = current_state
-	#current_state = new_state
-	#current_state.enter()
-	#
-## Pass through functions for the Player to call,
-## handling state changes as needed.
-#func process_physics(delta: float) -> void:
-	#var new_state = current_state.process_physics(delta)
-	#if new_state:
-		#change_state(new_state)
-#
-#func process_input(event: InputEvent) -> void:
-	#var new_state = current_state.process_input(event)
-	#if new_state:
-		#change_state(new_state)
-#
-#func process_frame(delta: float) -> void:
-	#var new_state = current_state.process_frame(delta)
-	#if new_state:
-		#change_state(new_state)
-
-
-
-### CUSTOMIZABLE VARS
+## CUSTOMIZABLE VARS
 @export var current_state: State
 
-### LOCAL VARS
+## LOCAL VARS
 var states: Dictionary = {}
-#var parent = get_parent()
 
 
-### With `init` we can initialize this State Machine
+## BEHAVIORS
+## In `init`, we initialize each of our child states
+## and connect this machine's signals to each child state.
+## We also crete our states dictionary and start the 
+## execution of the initial state
 func init(parent) -> void:
-	# DEBUG ONLY
-	print("JumpStateMachine init")
-	print("JumpStateMachine parent: ", parent)
-	print("JumpStateMachine current_state: ", current_state)
-
 	for child in get_children():
 		if child is State:
-			print("JumpStateMachine child: ", child)
-			# Set the entity as the parent variable reference in each child state
+			## Set the entity as the parent variable reference in each child state
 			child.parent = parent
-			print("JumpStateMachine child.parent: ", child.parent)
-			
-			# Add the state to the `Dictionary` using its `name`
+
+			## Add the state to the `Dictionary` using its `name`
 			states[child.name] = child
-			
-			# Connect the state machine to the `transitioned` signal of all children
+
+			## Connect the state machine to the `transitioned` signal of all children
 			child.transitioned.connect(on_child_transitioned)
-			
-			# Add previous state as current state
+
+			## Add previous state as current state
 			child.previous_state = current_state
-			print("JumpStateMachine child.previous_state: ", child.previous_state)
-			
 		else:
 			push_warning("State machine contains child which is not a 'State'")
-	
-	# DEBUG ONLY
-	print("JumpStateMachine states: ", states)
-	
-	# Start execution of the initial state
+
+	## Start execution of the initial state
 	current_state.enter()
-	
-
-
-### In `_ready`, we initialize states, we connect
-### the machine to each transitioned signal, and we 
-### start the execution of the initial state
-#func _ready():
-	## DEBUG ONLY
-	#print("JumpStateMachine _ready")
-	#print("JumpStateMachine parent: ", parent)
-#
-	#for child in get_children():
-		#if child is State:
-			## Set the entity as the parent variable reference in each child state
-			#child.parent = parent
-			#
-			## Add the state to the `Dictionary` using its `name`
-			#states[child.name] = child
-			#
-			## Connect the state machine to the `transitioned` signal of all children
-			#child.transitioned.connect(on_child_transitioned)
-			#
-			## Add previous state as current state
-			#child.previous_state = current_state
-			#
-			## Start execution of the initial state
-			#current_state.enter()
-		#else:
-			#push_warning("State machine contains child which is not a 'State'")
-	#
-	## DEBUG ONLY
-	#print("JumpStateMachine states: ", states)
 
 
 ## `on_child_transitioned` will get the name of the next state
@@ -170,26 +80,32 @@ func on_child_transitioned(new_state_name: StringName, child: State) -> void:
  
 	if new_state != null:
 		if new_state != current_state:
-			# Exit the current state
+			## Exit the current state
 			current_state.exit()
 
-			# Update previous state
+			## Update previous state
 			child.previous_state = current_state
 
-			# Enter the new state
+			## Enter the new state
 			new_state.enter()
  
-			# Update the current state to the new one
+			## Update the current state to the new one
 			current_state = new_state
 	else:
 		push_warning("Called transition on a state that does not exist")
 
 
-## Responsible for calling `.update` for the current state
-func _process(delta):
-	current_state.update(delta)
+## PASS PROCESSES THROUGH TO CURRENT STATE
+## Responsible for calling `.process_input` for the current state
+func process_input(event: InputEvent) -> void:
+	current_state.process_input(event)
 
 
-## Responsible for calling `.physics_update` for the current state
-func _physics_process(delta):
-	current_state.physics_update(delta)
+## Responsible for calling `.process_frame` for the current state
+func process_frame(delta: float) -> void:
+	current_state.process_frame(delta)
+
+
+## Responsible for calling `.process_physics` for the current state
+func process_physics(delta: float) -> void:
+	current_state.process_physics(delta)

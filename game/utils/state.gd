@@ -30,6 +30,7 @@ signal transitioned(new_state_name: StringName)
 ## CUSTOMIZABLE VARS
 @export var animation_name: String
 @export var run_speed: float = 300
+@export var jump_velocity: float = 410.0
 
 ## LOCAL VARS
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -40,32 +41,21 @@ var previous_state: State
 
 ## BEHAVIORS
 func enter() -> void:
-	print("STATE enter")
-	print("STATE parent: ", parent)
-	print("STATE previous_state: ", previous_state)
+	print("STATE animation_name: ", animation_name)
 	parent.animation.play(animation_name)
-	pass
 
 
 func exit() -> void:
 	pass
 
 
-#func process_input(_event: InputEvent) -> State:
-	#return null
-#
-#
-#func process_frame(_delta: float) -> State:
-	#return null
-#
-#func process_physics(_delta: float) -> State:
-	#return null
+func process_input(_event: InputEvent) -> State:
+	return null
 
 
-func update(_delta: float) -> void:
-	#print("STATE (update) previous_state: ", previous_state)
-	pass
- 
+func process_frame(_delta: float) -> State:
+	return null
 
-func process_physics(_delta: float) -> void:
-	pass
+
+func process_physics(_delta: float) -> State:
+	return null
