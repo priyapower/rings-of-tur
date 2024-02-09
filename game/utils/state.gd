@@ -1,3 +1,4 @@
+## GLOBAL STATE CLASS ##
 class_name State
 extends Node
 

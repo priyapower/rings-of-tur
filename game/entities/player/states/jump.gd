@@ -8,10 +8,14 @@ extends State
 
 ## Jump variables ##
 @export var jump_force: float = 410.0
+var horizontal_direction = Input.get_axis('left', 'right')
 
 func enter() -> void:
 	super()
 	parent.velocity.y = -jump_force
+	#if previous_state == run_state:
+		#parent.velocity.x = horizontal_direction * run_speed
+	
 
 func process_input(event: InputEvent) -> State:
 	# Handle sprite direction
@@ -23,11 +27,13 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	var horizontal_direction = Input.get_axis('left', 'right')
 	var no_vertical_movement = parent.velocity.y == 0
 	
 	# Add the gravity
 	parent.velocity.y += gravity * delta
+	
+	# Add directionality to mid air jump
+	parent.velocity.x = horizontal_direction * (run_speed / 1.5)
 	
 	# Handle jump
 	parent.move_and_slide()

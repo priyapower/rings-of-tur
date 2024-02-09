@@ -1,8 +1,13 @@
+## FINITE STATE MACHINE ##
 extends Node
 
+## Exported machine vars ##
 @export var starting_state: State
 
+## Local machine vars ##
+var previous_state: State
 var current_state: State
+
 
 # Initialize the state machine by giving each child state a reference to the
 # parent object it belongs to and enter the default starting_state.
@@ -15,9 +20,14 @@ func init(parent) -> void:
 
 # Change to the new state by first calling any exit logic on the current state.
 func change_state(new_state: State) -> void:
+	print("IN CHANGE STATE")
+	print("new_state: ", new_state)
+	print("current_state: ", current_state)
+	print("previous_state: ", previous_state)
 	if current_state:
 		current_state.exit()
-
+	
+	previous_state = current_state
 	current_state = new_state
 	current_state.enter()
 	

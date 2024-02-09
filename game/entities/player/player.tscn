@@ -548,7 +548,6 @@ animation_name = "Run"
 script = ExtResource("30_3kgpe")
 idle_state = NodePath("../Idle")
 animation_name = "Crouch"
-run_speed = 150.0
 
 [node name="Climb" type="Node" parent="StateMachine"]
 script = ExtResource("31_twf5q")
