@@ -440,3 +440,33 @@ Levels 1-3
 Levels 4-6
 Levels 7-9
 Level 10 - Big Boss"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 779.0
+offset_top = 584.0
+offset_right = 1082.0
+offset_bottom = 1205.0
+text = "Todays/this weekends todo (2/9/2024): 
+
+1. Go through remaining tutorial
+screens to learn a little more
+
+2. Prevent crouch in global var
+
+3. Add overall save point
+
+4. I believe the save file shouldn't
+be editable on export, but will
+confirm down the road
+
+5. Work on climb functionality
+
+6. Work on dash functionality
+
+7. Work on health functionality
+
+8. Work on enemy health
+
+9. Work on speed powerup
+
+10. Work on attack powerup"
