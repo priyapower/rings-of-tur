@@ -4,7 +4,6 @@ extends State
 
 ## BEHAVIORS
 func enter() -> void:
-	print("JUMPING (enter)")
 	super()
 	## Apply velocity to jump only once when entering the state
 	parent.velocity.y = -jump_velocity
@@ -21,17 +20,18 @@ func process_input(event: InputEvent) -> State:
 
 
 func process_physics(delta):
+	## Save if player inputs "up" command
 	var is_jump_just_pressed: bool = Input.is_action_just_pressed("up")
 
-	## Add the gravity
+	## Add the gravity and movement
 	parent.velocity.y += gravity * delta
-
 	parent.move_and_slide()
 
-	#if is_jump_just_pressed and parent.velocity.y > jump_velocity:
-		#transitioned.emit("DoubleJumpingJumpState", self)
-
+	## Handle transitions
 	if parent.is_on_floor():
-		print("JUMPING (is_on_floor) condition")
-		print("JUMPING (transitioning) idling")
 		transitioned.emit("IdlingJumpState", self)
+	else:
+		if is_jump_just_pressed and parent.velocity.y < jump_velocity:
+			transitioned.emit("DoubleJumpingJumpState", self)
+		if (parent.velocity.y > 0) && !parent.is_on_ceiling():
+			transitioned.emit("FallingJumpState", self)
