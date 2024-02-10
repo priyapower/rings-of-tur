@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2b2s0g2crv5p"]
+[gd_scene load_steps=10 format=3 uid="uid://b2b2s0g2crv5p"]
 
 [ext_resource type="Texture2D" uid="uid://ctiou38krihiq" path="res://game/assets/tiles/Terrain (16x16).png" id="2_45nfu"]
-[ext_resource type="PackedScene" uid="uid://ja6rkwks8rpm" path="res://game/entities/enemies/frog.tscn" id="2_jxfdw"]
+[ext_resource type="PackedScene" uid="uid://ja6rkwks8rpm" path="res://game/entities/enemies/frog/frog.tscn" id="2_jxfdw"]
 [ext_resource type="PackedScene" uid="uid://86mfysrxf4yl" path="res://game/entities/player/player.tscn" id="2_n4fxo"]
+[ext_resource type="Script" path="res://game/scenes/levels/enemy_label.gd" id="3_raemu"]
 [ext_resource type="Texture2D" uid="uid://ctp7sybpcmrcl" path="res://game/assets/tiles/tileset.png" id="3_rnnoa"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yij4t"]
@@ -853,8 +854,29 @@ sources/1 = SubResource("TileSetAtlasSource_d0bxr")
 [node name="Player" parent="." instance=ExtResource("2_n4fxo")]
 position = Vector2(29, 99)
 
-[node name="Frog" parent="." instance=ExtResource("2_jxfdw")]
+[node name="Frog1" parent="." instance=ExtResource("2_jxfdw")]
 position = Vector2(227, 206)
+
+[node name="Label" type="Label" parent="Frog1"]
+offset_left = -11.0
+offset_top = -31.0
+offset_right = 11.0
+offset_bottom = -19.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+script = ExtResource("3_raemu")
+
+[node name="Frog2" parent="." instance=ExtResource("2_jxfdw")]
+position = Vector2(455, 192)
+
+[node name="Label" type="Label" parent="Frog2"]
+offset_left = -11.0
+offset_top = -31.0
+offset_right = 11.0
+offset_bottom = -19.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+script = ExtResource("3_raemu")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_wrh6y")
