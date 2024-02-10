@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2b2s0g2crv5p"]
+[gd_scene load_steps=11 format=3 uid="uid://b2b2s0g2crv5p"]
 
+[ext_resource type="Script" path="res://game/scenes/levels/player_health_label.gd" id="2_2xf5c"]
 [ext_resource type="Texture2D" uid="uid://ctiou38krihiq" path="res://game/assets/tiles/Terrain (16x16).png" id="2_45nfu"]
 [ext_resource type="PackedScene" uid="uid://ja6rkwks8rpm" path="res://game/entities/enemies/frog/frog.tscn" id="2_jxfdw"]
 [ext_resource type="PackedScene" uid="uid://86mfysrxf4yl" path="res://game/entities/player/player.tscn" id="2_n4fxo"]
@@ -853,6 +854,15 @@ sources/1 = SubResource("TileSetAtlasSource_d0bxr")
 
 [node name="Player" parent="." instance=ExtResource("2_n4fxo")]
 position = Vector2(29, 99)
+
+[node name="Label" type="Label" parent="Player"]
+offset_left = -10.0
+offset_top = -46.0
+offset_right = 12.0
+offset_bottom = -23.0
+theme_override_colors/font_color = Color(0.141176, 0.0941176, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+script = ExtResource("2_2xf5c")
 
 [node name="Frog1" parent="." instance=ExtResource("2_jxfdw")]
 position = Vector2(227, 206)

@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var run_state_machine = $RunStateMachine
 @onready var move_component = $PlayerMove
 #@onready var ray_cast = $RayCastCrouch
+var health = 10
 
 
 ## BEHAVIORS

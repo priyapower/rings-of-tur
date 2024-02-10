@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ja6rkwks8rpm"]
+[gd_scene load_steps=28 format=3 uid="uid://ja6rkwks8rpm"]
 
 [ext_resource type="Script" path="res://game/entities/enemies/frog/frog.gd" id="1_nx0si"]
 [ext_resource type="Texture2D" uid="uid://yrf566hbxxq1" path="res://game/assets/sprites/entities/enemies/frog/attack/frog-jump-2.png" id="2_t8iwe"]
@@ -25,7 +25,10 @@
 radius = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_voho0"]
-size = Vector2(141, 47)
+size = Vector2(249, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eciqw"]
+size = Vector2(20, 11.5)
 
 [sub_resource type="Animation" id="Animation_lde36"]
 resource_name = "Attack"
@@ -103,7 +106,7 @@ script = ExtResource("1_nx0si")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -11)
-texture = ExtResource("2_t8iwe")
+texture = ExtResource("3_f3phx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)
@@ -114,8 +117,19 @@ position = Vector2(0, -9)
 monitorable = false
 
 [node name="PlayableDetectionCollision" type="CollisionShape2D" parent="PlayableDetection"]
-position = Vector2(-0.5, -14.5)
+position = Vector2(-0.5, -35)
 shape = SubResource("RectangleShape2D_voho0")
+
+[node name="KillZone" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PackedVector2Array(-7, -13, -8, -15, -7, -17, -3, -17, 0, -18, 5, -18, 7, -16, 7, -14, 5, -13, -3, -13)
+
+[node name="AttackZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_eciqw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -145,3 +159,5 @@ animation_name = "Death"
 
 [connection signal="body_entered" from="PlayableDetection" to="." method="_on_playable_detection_body_entered"]
 [connection signal="body_exited" from="PlayableDetection" to="." method="_on_playable_detection_body_exited"]
+[connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
+[connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]

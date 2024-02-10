@@ -502,7 +502,7 @@ script = ExtResource("1_idvwh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -16)
-texture = ExtResource("17_qp62f")
+texture = ExtResource("1_6087u")
 metadata/_edit_lock_ = true
 
 [node name="RayCastCrouch" type="RayCast2D" parent="."]

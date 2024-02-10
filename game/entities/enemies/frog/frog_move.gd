@@ -3,7 +3,7 @@ extends MoveInterface
 
 
 @onready var parent = self.get_parent()
-var playable_body: CharacterBody2D
+#var playable_body: CharacterBody2D
 
 
 ## Returns the direction of movement towards the playable_body 
@@ -11,8 +11,8 @@ var playable_body: CharacterBody2D
 ## in the range [-1, 1], where positive values indicate a desire
 ## to move to the right and negative values to the left.
 func get_horizontal_movement() -> float:
-	if playable_body:
-		return (playable_body.position - parent.position).normalized().x
+	if parent.playable_body:
+		return (parent.playable_body.position - parent.position).normalized().x
 	else:
 		return 0
 	#return (playable_body.position - parent.position).normalized().x
