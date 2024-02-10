@@ -46,11 +46,13 @@ var states: Dictionary = {}
 ## and connect this machine's signals to each child state.
 ## We also crete our states dictionary and start the 
 ## execution of the initial state
-func init(parent) -> void:
+func init(parent: CharacterBody2D, animations: AnimationPlayer, move_component) -> void:
 	for child in get_children():
 		if child is State:
 			## Set the entity as the parent variable reference in each child state
 			child.parent = parent
+			child.animations = animations
+			child.move_component = move_component
 
 			## Add the state to the `Dictionary` using its `name`
 			states[child.name] = child

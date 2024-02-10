@@ -22,7 +22,7 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta) -> State:
 	print("----------Idling Run State----------")
 	## Capture if player inputs commands for left/right movement
-	var is_horizontal_movement: bool = Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right")
+	var is_horizontal_movement: float = move_component.get_horizontal_movement()
 
 	## Add gravity and movement
 	parent.velocity.y += gravity * delta
@@ -30,7 +30,7 @@ func process_physics(delta) -> State:
 
 	## Handle transitions
 	if parent.is_on_floor():
-		if is_horizontal_movement:
+		if is_horizontal_movement != 0:
 			print("Idling run state transitions to running")
 			transitioned.emit("RunningRunState", self)
 	else:

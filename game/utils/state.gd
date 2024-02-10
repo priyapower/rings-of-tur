@@ -36,14 +36,16 @@ signal transitioned(new_state_name: StringName)
 ## LOCAL VARS
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 ## Hold a reference to the parent so that it can be controlled by the state
-var parent
+var animations: AnimationPlayer
+var parent: CharacterBody2D
 var previous_state: State
+var move_component
 
 
 ## BEHAVIORS
 func enter() -> void:
 	print("STATE animation_name: ", animation_name)
-	parent.animation.play(animation_name)
+	animations.play(animation_name)
 
 
 func exit() -> void:

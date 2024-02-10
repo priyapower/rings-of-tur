@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://86mfysrxf4yl"]
+[gd_scene load_steps=52 format=3 uid="uid://86mfysrxf4yl"]
 
 [ext_resource type="Texture2D" uid="uid://d0biltrxnqlu" path="res://game/assets/sprites/entities/player/idle/player-idle-1.png" id="1_6087u"]
 [ext_resource type="Script" path="res://game/entities/player/player.gd" id="1_idvwh"]
@@ -34,6 +34,7 @@
 [ext_resource type="Script" path="res://game/entities/player/states/running_run_state.gd" id="32_vtm6l"]
 [ext_resource type="Script" path="res://game/entities/player/states/idling_run_state.gd" id="33_r25x4"]
 [ext_resource type="Script" path="res://game/entities/player/states/falling_run_state.gd" id="34_ygi2l"]
+[ext_resource type="Script" path="res://game/entities/player/player_move.gd" id="35_388o7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15txp"]
 radius = 7.5
@@ -558,3 +559,6 @@ animation_name = "Idle"
 [node name="FallingRunState" type="Node" parent="RunStateMachine"]
 script = ExtResource("34_ygi2l")
 animation_name = "Fall"
+
+[node name="PlayerMove" type="Node" parent="."]
+script = ExtResource("35_388o7")
