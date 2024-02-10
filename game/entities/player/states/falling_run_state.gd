@@ -1,15 +1,10 @@
-class_name DoubleJumpingJumpState
+class_name FallingRunState
 extends State
-
-
-## CUSTOMIZABLE VARS
-@export var double_jump_velocity_scale: float = 1.1
 
 
 ## BEHAVIORS
 func enter() -> void:
 	super()
-	parent.velocity.y = -(jump_velocity * double_jump_velocity_scale)
 
 
 func process_input(event: InputEvent) -> State:
@@ -23,16 +18,22 @@ func process_input(event: InputEvent) -> State:
 
 
 func process_physics(delta) -> State:
-	print("Double Jump State")
+	print("Falling Jump State")
+	## Capture horizontal axis integer
+	var horizontal_direction = Input.get_axis('left', 'right')
+
 	## Add gravity and movement
 	parent.velocity.y += gravity * delta
 	parent.move_and_slide()
 
+	## Handle horizontal velocity
+	if horizontal_direction != 0:
+		parent.velocity.x = horizontal_direction * (run_speed * 1.5)
+	else:
+		parent.velocity.x = 0
+
 	## Handle transitions
 	if parent.is_on_floor():
-		transitioned.emit("IdlingState", self)
-	else:
-		if (parent.velocity.y > 0) && !parent.is_on_ceiling():
-			transitioned.emit("FallingJumpState", self)
+		transitioned.emit("IdlingRunState", self)
 
 	return null

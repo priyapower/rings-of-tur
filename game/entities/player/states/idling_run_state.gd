@@ -1,15 +1,12 @@
-class_name DoubleJumpingJumpState
+class_name IdlingRunState
 extends State
-
-
-## CUSTOMIZABLE VARS
-@export var double_jump_velocity_scale: float = 1.1
 
 
 ## BEHAVIORS
 func enter() -> void:
 	super()
-	parent.velocity.y = -(jump_velocity * double_jump_velocity_scale)
+	## Reset velocity when entering the state
+	parent.velocity.x = 0
 
 
 func process_input(event: InputEvent) -> State:
@@ -23,16 +20,22 @@ func process_input(event: InputEvent) -> State:
 
 
 func process_physics(delta) -> State:
-	print("Double Jump State")
+	print("----------Idling Run State----------")
+	## Capture if player inputs commands for left/right movement
+	var is_horizontal_movement: bool = Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right")
+
 	## Add gravity and movement
 	parent.velocity.y += gravity * delta
 	parent.move_and_slide()
 
 	## Handle transitions
 	if parent.is_on_floor():
-		transitioned.emit("IdlingState", self)
+		if is_horizontal_movement:
+			print("Idling run state transitions to running")
+			transitioned.emit("RunningRunState", self)
 	else:
 		if (parent.velocity.y > 0) && !parent.is_on_ceiling():
-			transitioned.emit("FallingJumpState", self)
+			print("Idling run state transitions to falling")
+			transitioned.emit("FallingRunState", self)
 
 	return null

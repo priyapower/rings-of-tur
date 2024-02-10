@@ -29,8 +29,8 @@ signal transitioned(new_state_name: StringName)
 
 ## CUSTOMIZABLE VARS
 @export var animation_name: String
-@export var run_speed: float = 300
-@export var jump_velocity: float = 410.0
+@export var run_speed: float = 200.0
+@export var jump_velocity: float = 350.0
 
 ## LOCAL VARS
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")

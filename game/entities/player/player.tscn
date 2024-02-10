@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://86mfysrxf4yl"]
+[gd_scene load_steps=51 format=3 uid="uid://86mfysrxf4yl"]
 
 [ext_resource type="Texture2D" uid="uid://d0biltrxnqlu" path="res://game/assets/sprites/entities/player/idle/player-idle-1.png" id="1_6087u"]
 [ext_resource type="Script" path="res://game/entities/player/player.gd" id="1_idvwh"]
@@ -27,10 +27,13 @@
 [ext_resource type="Texture2D" uid="uid://bgqtda83fancj" path="res://game/assets/sprites/entities/player/death/player-death-6-small.png" id="26_keevl"]
 [ext_resource type="Texture2D" uid="uid://l0dlojcyrrkc" path="res://game/assets/sprites/entities/player/death/player-death-7-small.png" id="27_6fto3"]
 [ext_resource type="Script" path="res://game/utils/state_machine.gd" id="27_vp2t3"]
-[ext_resource type="Script" path="res://game/entities/player/states/jumping_jump_state.gd" id="28_4w65u"]
-[ext_resource type="Script" path="res://game/entities/player/states/double_jumping_jump_state.gd" id="29_0y5x8"]
-[ext_resource type="Script" path="res://game/entities/player/states/idling_jump_state.gd" id="29_qx5x2"]
-[ext_resource type="Script" path="res://game/entities/player/states/falling_jump_state.gd" id="31_slw7k"]
+[ext_resource type="Script" path="res://game/entities/player/states/jumping_jump_state.gd" id="28_s5jy1"]
+[ext_resource type="Script" path="res://game/entities/player/states/idling_jump_state.gd" id="29_1ho80"]
+[ext_resource type="Script" path="res://game/entities/player/states/double_jumping_jump_state.gd" id="30_p1o13"]
+[ext_resource type="Script" path="res://game/entities/player/states/falling_jump_state.gd" id="31_c8jud"]
+[ext_resource type="Script" path="res://game/entities/player/states/running_run_state.gd" id="32_vtm6l"]
+[ext_resource type="Script" path="res://game/entities/player/states/idling_run_state.gd" id="33_r25x4"]
+[ext_resource type="Script" path="res://game/entities/player/states/falling_run_state.gd" id="34_ygi2l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15txp"]
 radius = 7.5
@@ -525,17 +528,29 @@ script = ExtResource("27_vp2t3")
 current_state = NodePath("IdlingJumpState")
 
 [node name="JumpingJumpState" type="Node" parent="JumpStateMachine"]
-script = ExtResource("28_4w65u")
+script = ExtResource("28_s5jy1")
 animation_name = "Jump"
 
 [node name="IdlingJumpState" type="Node" parent="JumpStateMachine"]
-script = ExtResource("29_qx5x2")
-animation_name = "Idle"
+script = ExtResource("29_1ho80")
 
 [node name="DoubleJumpingJumpState" type="Node" parent="JumpStateMachine"]
-script = ExtResource("29_0y5x8")
+script = ExtResource("30_p1o13")
 animation_name = "Jump"
 
 [node name="FallingJumpState" type="Node" parent="JumpStateMachine"]
-script = ExtResource("31_slw7k")
-animation_name = "Fall"
+script = ExtResource("31_c8jud")
+
+[node name="RunStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("27_vp2t3")
+current_state = NodePath("IdlingRunState")
+
+[node name="RunningRunState" type="Node" parent="RunStateMachine"]
+script = ExtResource("32_vtm6l")
+animation_name = "Run"
+
+[node name="IdlingRunState" type="Node" parent="RunStateMachine"]
+script = ExtResource("33_r25x4")
+
+[node name="FallingRunState" type="Node" parent="RunStateMachine"]
+script = ExtResource("34_ygi2l")

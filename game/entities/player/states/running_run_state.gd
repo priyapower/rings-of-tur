@@ -1,12 +1,8 @@
-class_name FallingJumpState
+class_name RunningRunState
 extends State
 
 
 ## BEHAVIORS
-func enter() -> void:
-	super()
-
-
 func process_input(event: InputEvent) -> State:
 	## Handle sprite direction
 	if event.is_action_pressed("left"):
@@ -18,7 +14,7 @@ func process_input(event: InputEvent) -> State:
 
 
 func process_physics(delta) -> State:
-	print("Falling Jump State")
+	print("----------Runnnig Run State----------")
 	## Capture horizontal axis integer
 	var horizontal_direction = Input.get_axis('left', 'right')
 
@@ -28,12 +24,14 @@ func process_physics(delta) -> State:
 
 	## Handle horizontal velocity
 	if horizontal_direction != 0:
-		parent.velocity.x = horizontal_direction * (run_speed * 1.5)
-	else:
-		parent.velocity.x = 0
+		parent.velocity.x = horizontal_direction * run_speed
+
+	## Handle slowing down after releasing input
+	if horizontal_direction == 0:
+		parent.velocity.x = lerp(parent.velocity.x, 0.0, 0.8)
 
 	## Handle transitions
-	if parent.is_on_floor():
-		transitioned.emit("IdlingJumpState", self)
+	if parent.velocity.x == 0:
+		transitioned.emit("IdlingRunState", self)
 
 	return null

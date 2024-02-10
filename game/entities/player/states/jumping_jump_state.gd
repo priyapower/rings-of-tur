@@ -19,13 +19,24 @@ func process_input(event: InputEvent) -> State:
 	return null
 
 
-func process_physics(delta):
-	## Save if player inputs "up" command
+func process_physics(delta) -> State:
+	print("Jumping Jump State")
+	## Capture if player inputs "up" command
 	var is_jump_just_pressed: bool = Input.is_action_just_pressed("up")
+	## Capture horizontal axis integer
+	var horizontal_direction = Input.get_axis('left', 'right')
 
-	## Add the gravity and movement
+	## Add gravity and movement
 	parent.velocity.y += gravity * delta
 	parent.move_and_slide()
+
+	## Handle horizontal velocity
+	if horizontal_direction != 0:
+		parent.velocity.x = horizontal_direction * run_speed
+	else:
+		parent.velocity.x = 0
+		#parent.velocity.x = lerp(parent.velocity.x, 0.0, 0.9)
+		#parent.velocity.x = move_toward(parent.velocity.x, 0, run_speed)
 
 	## Handle transitions
 	if parent.is_on_floor():
@@ -35,3 +46,5 @@ func process_physics(delta):
 			transitioned.emit("DoubleJumpingJumpState", self)
 		if (parent.velocity.y > 0) && !parent.is_on_ceiling():
 			transitioned.emit("FallingJumpState", self)
+
+	return null

@@ -71,10 +71,6 @@ func init(parent) -> void:
 ## and execute the transition from the current state (calling 
 ## `.exit`) to the new state (calling `.enter`)
 func on_child_transitioned(new_state_name: StringName, child: State) -> void:
-	print("STATE (on transition) new_state_name: ", new_state_name)
-	print("STATE (on transition) child: ", child)
-	print("STATE (on transition) current_state: ", current_state)
-	
 	# Get the next state from the `Dictionary`
 	var new_state = states.get(new_state_name)
  
