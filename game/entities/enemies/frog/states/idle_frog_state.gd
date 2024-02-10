@@ -15,7 +15,7 @@ func process_physics(_delta) -> State:
 	var is_horizontal_movement: float = move_component.get_horizontal_movement()
 
 	## Handle transitions
-	if move_component.dead == true:
+	if parent.dead == true:
 		transitioned.emit("DyingFrogState", self)
 	else:
 		if is_horizontal_movement != 0:

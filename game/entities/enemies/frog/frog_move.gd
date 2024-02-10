@@ -4,8 +4,6 @@ extends MoveInterface
 
 @onready var parent = self.get_parent()
 var playable_body: CharacterBody2D
-var chase: bool = false
-var dead: bool = false
 
 
 ## Returns the direction of movement towards the playable_body 

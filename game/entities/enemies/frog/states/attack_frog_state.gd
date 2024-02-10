@@ -15,7 +15,7 @@ func process_physics(_delta) -> State:
 	## Begin moving towards playable_body
 	parent.velocity.x = horizontal_direction * run_speed
 
-	if move_component.chase == true:
+	if parent.chase == true:
 		## Handle horizontal_direction of enemy movement/animation
 		if horizontal_direction > 0:
 			## Flip right
@@ -27,7 +27,7 @@ func process_physics(_delta) -> State:
 	else:
 		## Handle transitions
 		parent.velocity.x = 0
-		if move_component.dead == true:
+		if parent.dead == true:
 			transitioned.emit("DyingFrogState", self)
 		else:
 			transitioned.emit("IdlingFrogState", self)

@@ -867,7 +867,7 @@ theme_override_font_sizes/font_size = 8
 script = ExtResource("3_raemu")
 
 [node name="Frog2" parent="." instance=ExtResource("2_jxfdw")]
-position = Vector2(455, 192)
+position = Vector2(910, 191)
 
 [node name="Label" type="Label" parent="Frog2"]
 offset_left = -11.0

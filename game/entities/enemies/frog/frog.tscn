@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://ja6rkwks8rpm"]
+[gd_scene load_steps=27 format=3 uid="uid://ja6rkwks8rpm"]
 
 [ext_resource type="Script" path="res://game/entities/enemies/frog/frog.gd" id="1_nx0si"]
 [ext_resource type="Texture2D" uid="uid://yrf566hbxxq1" path="res://game/assets/sprites/entities/enemies/frog/attack/frog-jump-2.png" id="2_t8iwe"]
 [ext_resource type="Texture2D" uid="uid://bn8f3fw0swbxf" path="res://game/assets/sprites/entities/enemies/frog/idle/frog-idle-1.png" id="3_f3phx"]
 [ext_resource type="Texture2D" uid="uid://cu84cfflxkfm7" path="res://game/assets/sprites/entities/enemies/frog/idle/frog-idle-2.png" id="4_nkwne"]
-[ext_resource type="Script" path="res://game/entities/enemies/frog/frog_move.gd" id="5_h5hx1"]
 [ext_resource type="Texture2D" uid="uid://c55n6qkojw2uq" path="res://game/assets/sprites/entities/enemies/frog/idle/frog-idle-3.png" id="5_t6jrc"]
 [ext_resource type="Script" path="res://game/utils/state_machine.gd" id="6_pidno"]
 [ext_resource type="Texture2D" uid="uid://cgbhpp1emxx6j" path="res://game/assets/sprites/entities/enemies/frog/idle/frog-idle-4.png" id="6_t103v"]
@@ -19,10 +18,14 @@
 [ext_resource type="Texture2D" uid="uid://b8gmpvwjvktxq" path="res://game/assets/sprites/entities/enemies/enemy-death/enemy-death-4.png" id="13_lidxm"]
 [ext_resource type="Texture2D" uid="uid://dh4rwhjrvpyd8" path="res://game/assets/sprites/entities/enemies/enemy-death/enemy-death-5.png" id="14_cvl38"]
 [ext_resource type="Texture2D" uid="uid://comtqdljfk6bp" path="res://game/assets/sprites/entities/enemies/enemy-death/enemy-death-6.png" id="15_lmo3k"]
+[ext_resource type="Script" path="res://game/entities/enemies/frog/frog_move.gd" id="16_iyxgq"]
 [ext_resource type="Script" path="res://game/entities/enemies/frog/states/dying_frog_state.gd" id="20_cvfcs"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bgxl"]
-size = Vector2(25, 19)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebkuy"]
+radius = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_voho0"]
+size = Vector2(141, 47)
 
 [sub_resource type="Animation" id="Animation_lde36"]
 resource_name = "Attack"
@@ -95,58 +98,32 @@ _data = {
 "Idle": SubResource("Animation_6f63d")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_71kyo"]
-size = Vector2(257, 86.6016)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpkov"]
-size = Vector2(15, 8.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8u37"]
-size = Vector2(25.5, 11)
-
 [node name="Frog" type="CharacterBody2D"]
 script = ExtResource("1_nx0si")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -9.5)
-shape = SubResource("RectangleShape2D_5bgxl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -11)
 texture = ExtResource("2_t8iwe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_ebkuy")
+
+[node name="PlayableDetection" type="Area2D" parent="."]
+position = Vector2(0, -9)
+monitorable = false
+
+[node name="PlayableDetectionCollision" type="CollisionShape2D" parent="PlayableDetection"]
+position = Vector2(-0.5, -14.5)
+shape = SubResource("RectangleShape2D_voho0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_icif4")
 }
 
-[node name="PlayerDetection" type="Area2D" parent="."]
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
-position = Vector2(-1, -42.6992)
-shape = SubResource("RectangleShape2D_71kyo")
-metadata/_edit_lock_ = true
-
-[node name="DeathByJump" type="Area2D" parent="."]
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathByJump"]
-position = Vector2(0, -15.25)
-shape = SubResource("RectangleShape2D_cpkov")
-debug_color = Color(0.992157, 0, 0, 0.317647)
-
-[node name="HurtPlayer" type="Area2D" parent="."]
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtPlayer"]
-position = Vector2(0.25, -5.5)
-shape = SubResource("RectangleShape2D_r8u37")
-debug_color = Color(0.976471, 0.564706, 0, 0.419608)
-metadata/_edit_lock_ = true
-
 [node name="FrogMove" type="Node" parent="."]
-script = ExtResource("5_h5hx1")
+script = ExtResource("16_iyxgq")
 
 [node name="FrogStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("6_pidno")
@@ -166,7 +143,5 @@ run_speed = 75.0
 script = ExtResource("20_cvfcs")
 animation_name = "Death"
 
-[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
-[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
-[connection signal="body_entered" from="DeathByJump" to="." method="_on_death_by_jump_body_entered"]
-[connection signal="body_entered" from="HurtPlayer" to="." method="_on_hurt_player_body_entered"]
+[connection signal="body_entered" from="PlayableDetection" to="." method="_on_playable_detection_body_entered"]
+[connection signal="body_exited" from="PlayableDetection" to="." method="_on_playable_detection_body_exited"]
