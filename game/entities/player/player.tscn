@@ -533,6 +533,7 @@ animation_name = "Jump"
 
 [node name="IdlingJumpState" type="Node" parent="JumpStateMachine"]
 script = ExtResource("29_1ho80")
+animation_name = "Idle"
 
 [node name="DoubleJumpingJumpState" type="Node" parent="JumpStateMachine"]
 script = ExtResource("30_p1o13")
@@ -540,6 +541,7 @@ animation_name = "Jump"
 
 [node name="FallingJumpState" type="Node" parent="JumpStateMachine"]
 script = ExtResource("31_c8jud")
+animation_name = "Fall"
 
 [node name="RunStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("27_vp2t3")
@@ -551,6 +553,8 @@ animation_name = "Run"
 
 [node name="IdlingRunState" type="Node" parent="RunStateMachine"]
 script = ExtResource("33_r25x4")
+animation_name = "Idle"
 
 [node name="FallingRunState" type="Node" parent="RunStateMachine"]
 script = ExtResource("34_ygi2l")
+animation_name = "Fall"

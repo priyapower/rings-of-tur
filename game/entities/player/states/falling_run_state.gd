@@ -28,7 +28,7 @@ func process_physics(delta) -> State:
 
 	## Handle horizontal velocity
 	if horizontal_direction != 0:
-		parent.velocity.x = horizontal_direction * (run_speed * 1.5)
+		parent.velocity.x = horizontal_direction * (run_speed * fall_velocity_scale)
 	else:
 		parent.velocity.x = 0
 
