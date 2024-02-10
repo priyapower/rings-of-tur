@@ -23,7 +23,6 @@ func process_input(event: InputEvent) -> State:
 
 
 func process_physics(delta) -> State:
-	print("Double Jump State")
 	## Add gravity and movement
 	parent.velocity.y += gravity * delta
 	parent.move_and_slide()

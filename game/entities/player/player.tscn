@@ -497,7 +497,7 @@ _data = {
 "Run": SubResource("Animation_tcf31")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Climber", "Playable"]]
 script = ExtResource("1_idvwh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

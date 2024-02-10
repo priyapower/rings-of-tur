@@ -18,7 +18,6 @@ func process_input(event: InputEvent) -> State:
 
 
 func process_physics(delta) -> State:
-	print("Falling Jump State")
 	## Capture horizontal axis integer
 	var horizontal_direction: float = move_component.get_horizontal_movement()
 

@@ -20,7 +20,6 @@ func process_input(event: InputEvent) -> State:
 
 
 func process_physics(delta) -> State:
-	print("Idling Jump State")
 	## Save if player inputs "up" command
 	var is_jump_just_pressed: bool = move_component.wants_upward_movement()
 
@@ -31,11 +30,9 @@ func process_physics(delta) -> State:
 	## Handle transitions
 	if parent.is_on_floor():
 		if is_jump_just_pressed:
-			print("Idling jump state transitions to jumping")
 			transitioned.emit("JumpingJumpState", self)
 	else:
 		if (parent.velocity.y > 0) && !parent.is_on_ceiling():
-			print("Idling jump state transitions to falling")
 			transitioned.emit("FallingJumpState", self)
 
 	return null

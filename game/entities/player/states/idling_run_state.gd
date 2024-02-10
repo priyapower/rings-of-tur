@@ -20,7 +20,6 @@ func process_input(event: InputEvent) -> State:
 
 
 func process_physics(delta) -> State:
-	print("----------Idling Run State----------")
 	## Capture if player inputs commands for left/right movement
 	var is_horizontal_movement: float = move_component.get_horizontal_movement()
 
@@ -31,11 +30,9 @@ func process_physics(delta) -> State:
 	## Handle transitions
 	if parent.is_on_floor():
 		if is_horizontal_movement != 0:
-			print("Idling run state transitions to running")
 			transitioned.emit("RunningRunState", self)
 	else:
 		if (parent.velocity.y > 0) && !parent.is_on_ceiling():
-			print("Idling run state transitions to falling")
 			transitioned.emit("FallingRunState", self)
 
 	return null

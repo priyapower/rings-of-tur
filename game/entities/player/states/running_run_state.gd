@@ -14,7 +14,6 @@ func process_input(event: InputEvent) -> State:
 
 
 func process_physics(delta) -> State:
-	print("----------Runnnig Run State----------")
 	## Capture horizontal axis integer
 	var horizontal_direction: float = move_component.get_horizontal_movement()
 

@@ -44,7 +44,6 @@ var move_component
 
 ## BEHAVIORS
 func enter() -> void:
-	print("STATE animation_name: ", animation_name)
 	animations.play(animation_name)
 
 

@@ -20,7 +20,6 @@ func process_input(event: InputEvent) -> State:
 
 
 func process_physics(delta) -> State:
-	print("Jumping Jump State")
 	## Capture if player inputs "up" command
 	var is_jump_just_pressed: bool = move_component.wants_upward_movement()
 	## Capture horizontal axis integer
