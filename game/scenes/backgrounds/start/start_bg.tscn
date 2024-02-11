@@ -1,0 +1,145 @@
+[gd_scene load_steps=13 format=3 uid="uid://bbyto1xd57hod"]
+
+[ext_resource type="Script" path="res://game/scenes/backgrounds/start/start_bg.gd" id="1_aeta4"]
+[ext_resource type="Texture2D" uid="uid://jh0j8a4bqu6x" path="res://game/assets/backgrounds/back.png" id="1_fu8l7"]
+[ext_resource type="Texture2D" uid="uid://bv27t82h7kb4r" path="res://game/assets/backgrounds/middle.png" id="2_x23qe"]
+[ext_resource type="Texture2D" uid="uid://1ebe4heodk4f" path="res://game/assets/tiles/props/plant-house.png" id="4_7w858"]
+[ext_resource type="Texture2D" uid="uid://c2e362to68tgw" path="res://game/assets/sprites/entities/playables/player/climb/player-climb-2.png" id="4_ibq0t"]
+[ext_resource type="Texture2D" uid="uid://dvdk0xt4588iq" path="res://game/assets/tiles/props/palm.png" id="4_m6tq0"]
+[ext_resource type="Texture2D" uid="uid://d0biltrxnqlu" path="res://game/assets/sprites/entities/playables/player/idle/player-idle-1.png" id="5_ejc41"]
+[ext_resource type="Texture2D" uid="uid://buib2pmlylln3" path="res://game/assets/sprites/entities/playables/player/jump/player-jump-2.png" id="7_7i8rt"]
+[ext_resource type="Texture2D" uid="uid://dpbcxgnxddbhw" path="res://game/assets/tiles/props/bush.png" id="8_74tmj"]
+[ext_resource type="Texture2D" uid="uid://c5y34hejcw1d6" path="res://game/assets/backgrounds/Nature Landscapes Free Pixel Art/nature_1/8.png" id="8_dt702"]
+[ext_resource type="Texture2D" uid="uid://bl0msnjmgchwg" path="res://game/assets/tiles/props/rock-2.png" id="9_f78t4"]
+[ext_resource type="Texture2D" uid="uid://kx4kj143vi4l" path="res://game/assets/sprites/entities/playables/player/jump/player-jump-1.png" id="11_b3o7p"]
+
+[node name="StartBG" type="ParallaxBackground"]
+script = ExtResource("1_aeta4")
+
+[node name="Background" type="ParallaxLayer" parent="."]
+position = Vector2(1, 0)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(926, 0)
+
+[node name="Back" type="Sprite2D" parent="Background"]
+position = Vector2(-2, -1)
+scale = Vector2(2.41262, 2.41262)
+texture = ExtResource("1_fu8l7")
+centered = false
+
+[node name="Midground" type="ParallaxLayer" parent="."]
+position = Vector2(1, 0)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(926, 0)
+
+[node name="Middle8" type="Sprite2D" parent="Midground"]
+position = Vector2(184, 267)
+texture = ExtResource("2_x23qe")
+centered = false
+
+[node name="Plant-house" type="Sprite2D" parent="Midground"]
+position = Vector2(355, 294)
+scale = Vector2(0.88835, 0.88835)
+texture = ExtResource("4_7w858")
+
+[node name="Palm" type="Sprite2D" parent="Midground"]
+position = Vector2(855, 290)
+texture = ExtResource("4_m6tq0")
+
+[node name="Palm2" type="Sprite2D" parent="Midground"]
+position = Vector2(817, 297)
+scale = Vector2(0.791139, 0.791139)
+texture = ExtResource("4_m6tq0")
+
+[node name="Middle3" type="Sprite2D" parent="Midground"]
+position = Vector2(417, 195.455)
+scale = Vector2(1.22159, 1.22159)
+texture = ExtResource("2_x23qe")
+centered = false
+
+[node name="Middle4" type="Sprite2D" parent="Midground"]
+position = Vector2(65, 191)
+scale = Vector2(1.22159, 1.22159)
+texture = ExtResource("2_x23qe")
+centered = false
+
+[node name="Middle5" type="Sprite2D" parent="Midground"]
+position = Vector2(633, 191)
+scale = Vector2(1.22159, 1.22159)
+texture = ExtResource("2_x23qe")
+centered = false
+
+[node name="Middle" type="Sprite2D" parent="Midground"]
+position = Vector2(-2, 267)
+texture = ExtResource("2_x23qe")
+centered = false
+
+[node name="Middle6" type="Sprite2D" parent="Midground"]
+position = Vector2(303, 267)
+texture = ExtResource("2_x23qe")
+centered = false
+
+[node name="Middle7" type="Sprite2D" parent="Midground"]
+position = Vector2(531, 267)
+texture = ExtResource("2_x23qe")
+centered = false
+
+[node name="Middle2" type="Sprite2D" parent="Midground"]
+position = Vector2(748, 277)
+texture = ExtResource("2_x23qe")
+centered = false
+
+[node name="Player-climb-2" type="Sprite2D" parent="Midground"]
+position = Vector2(561, 271)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("4_ibq0t")
+
+[node name="Player-jump-2" type="Sprite2D" parent="Midground"]
+position = Vector2(895, 305)
+texture = ExtResource("7_7i8rt")
+
+[node name="ForegroundGrass" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(926, 0)
+
+[node name="Grass" type="Sprite2D" parent="ForegroundGrass"]
+position = Vector2(462.889, 227.5)
+scale = Vector2(1.60802, 1.60802)
+texture = ExtResource("8_dt702")
+
+[node name="Foreground" type="ParallaxLayer" parent="."]
+position = Vector2(289, 288)
+motion_mirroring = Vector2(962, 0)
+
+[node name="Rock-2" type="Sprite2D" parent="Foreground"]
+position = Vector2(353, 94)
+scale = Vector2(1.07456, 1.07456)
+texture = ExtResource("9_f78t4")
+
+[node name="Bush" type="Sprite2D" parent="Foreground"]
+position = Vector2(-8.00001, 98)
+scale = Vector2(1.28571, 1.28571)
+texture = ExtResource("8_74tmj")
+
+[node name="Bush3" type="Sprite2D" parent="Foreground"]
+self_modulate = Color(0.666667, 1, 0.745098, 1)
+position = Vector2(18, 112)
+texture = ExtResource("8_74tmj")
+
+[node name="Bush4" type="Sprite2D" parent="Foreground"]
+modulate = Color(1, 0.694118, 1, 1)
+position = Vector2(-30, 116)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_74tmj")
+
+[node name="Player" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1852, 0)
+
+[node name="Player-jump-1" type="Sprite2D" parent="Player"]
+position = Vector2(1579.91, 333.5)
+scale = Vector2(1.78125, 1.78125)
+texture = ExtResource("11_b3o7p")
+
+[node name="Player-idle-1" type="Sprite2D" parent="Player"]
+position = Vector2(187.906, 374.5)
+scale = Vector2(1.8125, 1.8125)
+texture = ExtResource("5_ejc41")

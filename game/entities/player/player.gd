@@ -2,26 +2,37 @@ class_name Player
 extends CharacterBody2D
 
 
-## Player exported vars ##
-@onready var animation : AnimationPlayer = $AnimationPlayer
+## CUSTOMIZABLE VARS
+@onready var animations : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
-@onready var state_machine = $StateMachine
-@onready var ray_cast = $RayCastCrouch
+@onready var jump_state_machine = $JumpStateMachine
+@onready var run_state_machine = $RunStateMachine
+@onready var move_component = $PlayerMove
+#@onready var ray_cast = $RayCastCrouch
+var health = 10
 
 
+## BEHAVIORS
 func _ready() -> void:
-	# Initialize the state machine, passing a reference of the player to the states,
-	# that way they can move and react accordingly
-	state_machine.init(self)
+	## Initialize each state machine
+	## Each machine will pass a reference
+	## of the Player (self) to each machine's state
+	## so they can move and react accordingly
+	jump_state_machine.init(self, animations, move_component)
+	run_state_machine.init(self, animations, move_component)
 
 
+## PASS PROCESSES THROUGH TO STATE MACHINE
 func _unhandled_input(event: InputEvent) -> void:
-	state_machine.process_input(event)
-
-
-func _physics_process(delta: float) -> void:
-	state_machine.process_physics(delta)
+	jump_state_machine.process_input(event)
+	run_state_machine.process_input(event)
 
 
 func _process(delta: float) -> void:
-	state_machine.process_frame(delta)
+	jump_state_machine.process_frame(delta)
+	run_state_machine.process_frame(delta)
+
+
+func _physics_process(delta: float) -> void:
+	jump_state_machine.process_physics(delta)
+	run_state_machine.process_physics(delta)

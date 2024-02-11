@@ -1,40 +1,40 @@
 [gd_scene load_steps=52 format=3 uid="uid://86mfysrxf4yl"]
 
-[ext_resource type="Texture2D" uid="uid://d0biltrxnqlu" path="res://game/assets/sprites/entities/player/idle/player-idle-1.png" id="1_6087u"]
+[ext_resource type="Texture2D" uid="uid://d0biltrxnqlu" path="res://game/assets/sprites/entities/playables/player/idle/player-idle-1.png" id="1_6087u"]
 [ext_resource type="Script" path="res://game/entities/player/player.gd" id="1_idvwh"]
-[ext_resource type="Texture2D" uid="uid://dh0vltbgrpxgb" path="res://game/assets/sprites/entities/player/idle/player-idle-2.png" id="2_1ql88"]
-[ext_resource type="Texture2D" uid="uid://ifgycxbbt4eu" path="res://game/assets/sprites/entities/player/hurt/player-hurt-1.png" id="2_4swjw"]
-[ext_resource type="Texture2D" uid="uid://c7pojf82d6oni" path="res://game/assets/sprites/entities/player/idle/player-idle-4.png" id="2_8236j"]
-[ext_resource type="Texture2D" uid="uid://fs27owooqg0h" path="res://game/assets/sprites/entities/player/run/player-run-2.png" id="2_diufm"]
-[ext_resource type="Texture2D" uid="uid://l1kmgecd6q6p" path="res://game/assets/sprites/entities/player/idle/player-idle-3.png" id="3_tfgsa"]
-[ext_resource type="Texture2D" uid="uid://buib2pmlylln3" path="res://game/assets/sprites/entities/player/jump/player-jump-2.png" id="7_2m1ga"]
-[ext_resource type="Texture2D" uid="uid://dbt8s7k307gh4" path="res://game/assets/sprites/entities/player/run/player-run-1.png" id="7_6dn4m"]
-[ext_resource type="Texture2D" uid="uid://l8kq0852fg8o" path="res://game/assets/sprites/entities/player/run/player-run-4.png" id="8_8skhi"]
-[ext_resource type="Texture2D" uid="uid://ba2aedlujldik" path="res://game/assets/sprites/entities/player/run/player-run-5.png" id="9_gijos"]
-[ext_resource type="Texture2D" uid="uid://boeusvhou5tby" path="res://game/assets/sprites/entities/player/run/player-run-6.png" id="10_lwd37"]
-[ext_resource type="Texture2D" uid="uid://kx4kj143vi4l" path="res://game/assets/sprites/entities/player/jump/player-jump-1.png" id="13_anvpl"]
-[ext_resource type="Texture2D" uid="uid://dq27qo373dvm2" path="res://game/assets/sprites/entities/player/hurt/player-hurt-2.png" id="14_mwtrp"]
-[ext_resource type="Texture2D" uid="uid://dnxkqm5ya6nij" path="res://game/assets/sprites/entities/player/crouch/player-crouch-1.png" id="15_j683v"]
-[ext_resource type="Texture2D" uid="uid://qdljmbjqyc8m" path="res://game/assets/sprites/entities/player/crouch/player-crouch-2.png" id="16_rf6su"]
-[ext_resource type="Texture2D" uid="uid://d3ewplpp0glif" path="res://game/assets/sprites/entities/player/climb/player-climb-1.png" id="17_qp62f"]
-[ext_resource type="Texture2D" uid="uid://c2e362to68tgw" path="res://game/assets/sprites/entities/player/climb/player-climb-2.png" id="18_76j4n"]
-[ext_resource type="Texture2D" uid="uid://bbap8xl4m704b" path="res://game/assets/sprites/entities/player/climb/player-climb-3.png" id="19_pa1hn"]
-[ext_resource type="Texture2D" uid="uid://dp8mufwxw62va" path="res://game/assets/sprites/entities/player/death/player-death-1.png" id="21_q75kb"]
-[ext_resource type="Texture2D" uid="uid://cbq3vu3sfuq7f" path="res://game/assets/sprites/entities/player/death/player-death-2.png" id="22_gnb1v"]
-[ext_resource type="Texture2D" uid="uid://d0neh38supk6a" path="res://game/assets/sprites/entities/player/death/player-death-3.png" id="23_6ggr4"]
-[ext_resource type="Texture2D" uid="uid://dv0rxgvwae78m" path="res://game/assets/sprites/entities/player/death/player-death-4-small.png" id="24_popkt"]
-[ext_resource type="Texture2D" uid="uid://cva5kijk3rkvy" path="res://game/assets/sprites/entities/player/death/player-death-5-small.png" id="25_f3y58"]
-[ext_resource type="Texture2D" uid="uid://bgqtda83fancj" path="res://game/assets/sprites/entities/player/death/player-death-6-small.png" id="26_keevl"]
-[ext_resource type="Texture2D" uid="uid://l0dlojcyrrkc" path="res://game/assets/sprites/entities/player/death/player-death-7-small.png" id="27_6fto3"]
+[ext_resource type="Texture2D" uid="uid://dh0vltbgrpxgb" path="res://game/assets/sprites/entities/playables/player/idle/player-idle-2.png" id="2_1ql88"]
+[ext_resource type="Texture2D" uid="uid://ifgycxbbt4eu" path="res://game/assets/sprites/entities/playables/player/hurt/player-hurt-1.png" id="2_4swjw"]
+[ext_resource type="Texture2D" uid="uid://c7pojf82d6oni" path="res://game/assets/sprites/entities/playables/player/idle/player-idle-4.png" id="2_8236j"]
+[ext_resource type="Texture2D" uid="uid://fs27owooqg0h" path="res://game/assets/sprites/entities/playables/player/run/player-run-2.png" id="2_diufm"]
+[ext_resource type="Texture2D" uid="uid://l1kmgecd6q6p" path="res://game/assets/sprites/entities/playables/player/idle/player-idle-3.png" id="3_tfgsa"]
+[ext_resource type="Texture2D" uid="uid://buib2pmlylln3" path="res://game/assets/sprites/entities/playables/player/jump/player-jump-2.png" id="7_2m1ga"]
+[ext_resource type="Texture2D" uid="uid://dbt8s7k307gh4" path="res://game/assets/sprites/entities/playables/player/run/player-run-1.png" id="7_6dn4m"]
+[ext_resource type="Texture2D" uid="uid://l8kq0852fg8o" path="res://game/assets/sprites/entities/playables/player/run/player-run-4.png" id="8_8skhi"]
+[ext_resource type="Texture2D" uid="uid://ba2aedlujldik" path="res://game/assets/sprites/entities/playables/player/run/player-run-5.png" id="9_gijos"]
+[ext_resource type="Texture2D" uid="uid://boeusvhou5tby" path="res://game/assets/sprites/entities/playables/player/run/player-run-6.png" id="10_lwd37"]
+[ext_resource type="Texture2D" uid="uid://kx4kj143vi4l" path="res://game/assets/sprites/entities/playables/player/jump/player-jump-1.png" id="13_anvpl"]
+[ext_resource type="Texture2D" uid="uid://dq27qo373dvm2" path="res://game/assets/sprites/entities/playables/player/hurt/player-hurt-2.png" id="14_mwtrp"]
+[ext_resource type="Texture2D" uid="uid://dnxkqm5ya6nij" path="res://game/assets/sprites/entities/playables/player/crouch/player-crouch-1.png" id="15_j683v"]
+[ext_resource type="Texture2D" uid="uid://qdljmbjqyc8m" path="res://game/assets/sprites/entities/playables/player/crouch/player-crouch-2.png" id="16_rf6su"]
+[ext_resource type="Texture2D" uid="uid://d3ewplpp0glif" path="res://game/assets/sprites/entities/playables/player/climb/player-climb-1.png" id="17_qp62f"]
+[ext_resource type="Texture2D" uid="uid://c2e362to68tgw" path="res://game/assets/sprites/entities/playables/player/climb/player-climb-2.png" id="18_76j4n"]
+[ext_resource type="Texture2D" uid="uid://bbap8xl4m704b" path="res://game/assets/sprites/entities/playables/player/climb/player-climb-3.png" id="19_pa1hn"]
+[ext_resource type="Texture2D" uid="uid://dp8mufwxw62va" path="res://game/assets/sprites/entities/playables/player/death/player-death-1.png" id="21_q75kb"]
+[ext_resource type="Texture2D" uid="uid://cbq3vu3sfuq7f" path="res://game/assets/sprites/entities/playables/player/death/player-death-2.png" id="22_gnb1v"]
+[ext_resource type="Texture2D" uid="uid://d0neh38supk6a" path="res://game/assets/sprites/entities/playables/player/death/player-death-3.png" id="23_6ggr4"]
+[ext_resource type="Texture2D" uid="uid://dv0rxgvwae78m" path="res://game/assets/sprites/entities/playables/player/death/player-death-4-small.png" id="24_popkt"]
+[ext_resource type="Texture2D" uid="uid://cva5kijk3rkvy" path="res://game/assets/sprites/entities/playables/player/death/player-death-5-small.png" id="25_f3y58"]
+[ext_resource type="Texture2D" uid="uid://bgqtda83fancj" path="res://game/assets/sprites/entities/playables/player/death/player-death-6-small.png" id="26_keevl"]
+[ext_resource type="Texture2D" uid="uid://l0dlojcyrrkc" path="res://game/assets/sprites/entities/playables/player/death/player-death-7-small.png" id="27_6fto3"]
 [ext_resource type="Script" path="res://game/utils/state_machine.gd" id="27_vp2t3"]
-[ext_resource type="Script" path="res://game/entities/player/states/fall.gd" id="28_4bn7t"]
-[ext_resource type="Script" path="res://game/entities/player/states/idle.gd" id="29_qe3kn"]
-[ext_resource type="Script" path="res://game/entities/player/states/jump.gd" id="30_3e2i7"]
-[ext_resource type="Script" path="res://game/entities/player/states/crouch.gd" id="30_3kgpe"]
-[ext_resource type="Script" path="res://game/entities/player/states/run.gd" id="31_ce8ac"]
-[ext_resource type="Script" path="res://game/entities/player/states/climb.gd" id="31_twf5q"]
-[ext_resource type="Script" path="res://game/entities/player/states/hurt.gd" id="34_pjsuh"]
-[ext_resource type="Script" path="res://game/entities/player/states/death.gd" id="35_oo21h"]
+[ext_resource type="Script" path="res://game/entities/player/states/jumping_jump_state.gd" id="28_s5jy1"]
+[ext_resource type="Script" path="res://game/entities/player/states/idling_jump_state.gd" id="29_1ho80"]
+[ext_resource type="Script" path="res://game/entities/player/states/double_jumping_jump_state.gd" id="30_p1o13"]
+[ext_resource type="Script" path="res://game/entities/player/states/falling_jump_state.gd" id="31_c8jud"]
+[ext_resource type="Script" path="res://game/entities/player/states/running_run_state.gd" id="32_vtm6l"]
+[ext_resource type="Script" path="res://game/entities/player/states/idling_run_state.gd" id="33_r25x4"]
+[ext_resource type="Script" path="res://game/entities/player/states/falling_run_state.gd" id="34_ygi2l"]
+[ext_resource type="Script" path="res://game/entities/player/player_move.gd" id="35_388o7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15txp"]
 radius = 7.5
@@ -497,12 +497,12 @@ _data = {
 "Run": SubResource("Animation_tcf31")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Climber", "Playable"]]
 script = ExtResource("1_idvwh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -16)
-texture = ExtResource("2_1ql88")
+texture = ExtResource("1_6087u")
 metadata/_edit_lock_ = true
 
 [node name="RayCastCrouch" type="RayCast2D" parent="."]
@@ -524,49 +524,41 @@ libraries = {
 }
 autoplay = "Idle"
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+[node name="JumpStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("27_vp2t3")
-starting_state = NodePath("Idle")
+current_state = NodePath("IdlingJumpState")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "jump_state", "run_state", "crouch_state")]
-script = ExtResource("29_qe3kn")
-fall_state = NodePath("../Fall")
-jump_state = NodePath("../Jump")
-run_state = NodePath("../Run")
-crouch_state = NodePath("../Crouch")
-animation_name = "Idle"
-
-[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "jump_state", "crouch_state")]
-script = ExtResource("31_ce8ac")
-fall_state = NodePath("../Fall")
-idle_state = NodePath("../Idle")
-jump_state = NodePath("../Jump")
-crouch_state = NodePath("../Crouch")
-animation_name = "Run"
-
-[node name="Crouch" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
-script = ExtResource("30_3kgpe")
-idle_state = NodePath("../Idle")
-animation_name = "Crouch"
-
-[node name="Climb" type="Node" parent="StateMachine"]
-script = ExtResource("31_twf5q")
-
-[node name="Jump" type="Node" parent="StateMachine" node_paths=PackedStringArray("fall_state", "idle_state", "run_state")]
-script = ExtResource("30_3e2i7")
-fall_state = NodePath("../Fall")
-idle_state = NodePath("../Idle")
-run_state = NodePath("../Run")
+[node name="JumpingJumpState" type="Node" parent="JumpStateMachine"]
+script = ExtResource("28_s5jy1")
 animation_name = "Jump"
 
-[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "run_state")]
-script = ExtResource("28_4bn7t")
-idle_state = NodePath("../Idle")
-run_state = NodePath("../Run")
+[node name="IdlingJumpState" type="Node" parent="JumpStateMachine"]
+script = ExtResource("29_1ho80")
+animation_name = "Idle"
+
+[node name="DoubleJumpingJumpState" type="Node" parent="JumpStateMachine"]
+script = ExtResource("30_p1o13")
+animation_name = "Jump"
+
+[node name="FallingJumpState" type="Node" parent="JumpStateMachine"]
+script = ExtResource("31_c8jud")
 animation_name = "Fall"
 
-[node name="Hurt" type="Node" parent="StateMachine"]
-script = ExtResource("34_pjsuh")
+[node name="RunStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("27_vp2t3")
+current_state = NodePath("IdlingRunState")
 
-[node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource("35_oo21h")
+[node name="RunningRunState" type="Node" parent="RunStateMachine"]
+script = ExtResource("32_vtm6l")
+animation_name = "Run"
+
+[node name="IdlingRunState" type="Node" parent="RunStateMachine"]
+script = ExtResource("33_r25x4")
+animation_name = "Idle"
+
+[node name="FallingRunState" type="Node" parent="RunStateMachine"]
+script = ExtResource("34_ygi2l")
+animation_name = "Fall"
+
+[node name="PlayerMove" type="Node" parent="."]
+script = ExtResource("35_388o7")
