@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpn0dnyrhyk71"]
+
+[ext_resource type="Script" path="res://game/scenes/backgrounds/village/village_bg.gd" id="1_0yrxu"]
+[ext_resource type="Texture2D" uid="uid://jh0j8a4bqu6x" path="res://game/assets/backgrounds/back.png" id="2_x4urk"]
+[ext_resource type="Texture2D" uid="uid://bv27t82h7kb4r" path="res://game/assets/backgrounds/middle.png" id="3_1q867"]
+[ext_resource type="Texture2D" uid="uid://c28pntj6aq8n0" path="res://game/assets/backgrounds/Nature Landscapes Free Pixel Art/nature_1/2.png" id="4_av4ma"]
+[ext_resource type="Texture2D" uid="uid://ha0ey24gs2qk" path="res://game/assets/backgrounds/Nature Landscapes Free Pixel Art/nature_4/2.png" id="5_e8ll6"]
+
+[node name="VillageBG" type="ParallaxBackground"]
+script = ExtResource("1_0yrxu")
+
+[node name="Background" type="ParallaxLayer" parent="."]
+position = Vector2(1, 0)
+motion_mirroring = Vector2(926, 0)
+
+[node name="CloudOcean" type="Sprite2D" parent="Background"]
+position = Vector2(-2, -1)
+scale = Vector2(2.41262, 2.41262)
+texture = ExtResource("2_x4urk")
+centered = false
+
+[node name="Midground" type="ParallaxLayer" parent="."]
+position = Vector2(1, 0)
+motion_mirroring = Vector2(926, 0)
+
+[node name="Mountain1" type="Sprite2D" parent="Midground"]
+position = Vector2(184, 267)
+texture = ExtResource("3_1q867")
+centered = false
+
+[node name="Mountain2" type="Sprite2D" parent="Midground"]
+position = Vector2(417, 195.455)
+scale = Vector2(1.22159, 1.22159)
+texture = ExtResource("3_1q867")
+centered = false
+
+[node name="Mountain3" type="Sprite2D" parent="Midground"]
+position = Vector2(65, 191)
+scale = Vector2(1.22159, 1.22159)
+texture = ExtResource("3_1q867")
+centered = false
+
+[node name="Mountain4" type="Sprite2D" parent="Midground"]
+position = Vector2(633, 191)
+scale = Vector2(1.22159, 1.22159)
+texture = ExtResource("3_1q867")
+centered = false
+
+[node name="Mountain5" type="Sprite2D" parent="Midground"]
+position = Vector2(-2, 267)
+texture = ExtResource("3_1q867")
+centered = false
+
+[node name="Mountain6" type="Sprite2D" parent="Midground"]
+position = Vector2(303, 267)
+texture = ExtResource("3_1q867")
+centered = false
+
+[node name="Mountain7" type="Sprite2D" parent="Midground"]
+position = Vector2(531, 267)
+texture = ExtResource("3_1q867")
+centered = false
+
+[node name="Mountain8" type="Sprite2D" parent="Midground"]
+position = Vector2(748, 277)
+texture = ExtResource("3_1q867")
+centered = false
+
+[node name="Clouds" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(926, 0)
+
+[node name="Cloud1" type="Sprite2D" parent="Clouds"]
+position = Vector2(44, 170)
+scale = Vector2(0.277778, 0.277778)
+texture = ExtResource("4_av4ma")
+centered = false
+
+[node name="Cloud3" type="Sprite2D" parent="Clouds"]
+modulate = Color(0.956863, 1, 0.960784, 0.752941)
+position = Vector2(663, 68)
+scale = Vector2(0.229002, 0.295056)
+skew = -0.326377
+texture = ExtResource("4_av4ma")
+centered = false
+flip_h = true
+
+[node name="Cloud2" type="Sprite2D" parent="Clouds"]
+modulate = Color(0.913725, 0.941176, 1, 0.737255)
+position = Vector2(306, 1)
+scale = Vector2(0.361111, 0.361111)
+texture = ExtResource("5_e8ll6")
+centered = false
