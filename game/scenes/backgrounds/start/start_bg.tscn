@@ -123,7 +123,6 @@ texture = ExtResource("8_74tmj")
 [node name="Bush3" type="Sprite2D" parent="Foreground"]
 self_modulate = Color(0.666667, 1, 0.745098, 1)
 position = Vector2(18, 112)
-scale = Vector2(1, 1)
 texture = ExtResource("8_74tmj")
 
 [node name="Bush4" type="Sprite2D" parent="Foreground"]
