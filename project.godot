@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The Tur of the Rings"
-run/main_scene="res://game/main.tscn"
+run/main_scene="res://game/scenes/start.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
@@ -25,7 +25,8 @@ Utils="*res://game/globals/Utils.gd"
 window/size/viewport_width=926
 window/size/viewport_height=428
 window/size/mode=2
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/main_scene="res://game/scenes/main.tscn"
 
 [editor]
 
