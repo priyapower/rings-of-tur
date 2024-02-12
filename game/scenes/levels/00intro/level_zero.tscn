@@ -862,7 +862,7 @@ sources/1 = SubResource("TileSetAtlasSource_d0bxr")
 [node name="VillageBG" parent="." instance=ExtResource("1_umiyl")]
 
 [node name="Player" parent="." instance=ExtResource("2_atkjl")]
-position = Vector2(138, 290)
+position = Vector2(161, 331)
 
 [node name="Label" type="Label" parent="Player"]
 offset_left = -10.0
@@ -912,7 +912,7 @@ layer_2/name = "Decor"
 layer_2/tile_data = PackedInt32Array()
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(138, 290)
+position = Vector2(161, 331)
 limit_left = 0
 limit_top = -5
 limit_right = 1852

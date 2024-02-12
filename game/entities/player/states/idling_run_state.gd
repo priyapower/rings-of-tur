@@ -21,7 +21,7 @@ func process_input(event: InputEvent) -> State:
 
 func process_physics(delta) -> State:
 	## Capture if player inputs commands for left/right movement
-	var is_horizontal_movement: float = move_component.get_horizontal_movement()
+	var horizontal_direction: float = move_component.get_horizontal_movement()
 
 	## Add gravity and movement
 	parent.velocity.y += gravity * delta
@@ -29,7 +29,7 @@ func process_physics(delta) -> State:
 
 	## Handle transitions
 	if parent.is_on_floor():
-		if is_horizontal_movement != 0:
+		if horizontal_direction != 0:
 			transitioned.emit("RunningRunState", self)
 	else:
 		if (parent.velocity.y > 0) && !parent.is_on_ceiling():

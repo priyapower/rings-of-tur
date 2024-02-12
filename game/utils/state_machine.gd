@@ -86,6 +86,7 @@ func on_child_transitioned(new_state_name: StringName, child: State) -> void:
 
 			## Enter the new state
 			new_state.enter()
+			print("transitioned to new_state: ", new_state)
  
 			## Update the current state to the new one
 			current_state = new_state

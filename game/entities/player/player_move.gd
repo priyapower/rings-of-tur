@@ -8,6 +8,11 @@ func get_horizontal_movement() -> float:
 	return Input.get_axis('left', 'right')
 
 
-## Return a boolean indicating if the character wants to upward
-func wants_upward_movement() -> bool:
+## Returns a boolean indicating if the entity wants horizontal movement (left/right)
+func is_horizontal_movement() -> bool:
+	return Input.is_action_just_pressed('left') or Input.is_action_just_pressed('right')
+
+
+## Return a boolean indicating if the entity wants upward movement (jump/climb)
+func is_upward_movement() -> bool:
 	return Input.is_action_just_pressed('up')

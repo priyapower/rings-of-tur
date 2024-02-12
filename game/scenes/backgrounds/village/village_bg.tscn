@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpn0dnyrhyk71"]
+[gd_scene load_steps=5 format=3 uid="uid://cpn0dnyrhyk71"]
 
-[ext_resource type="Script" path="res://game/scenes/backgrounds/village/village_bg.gd" id="1_0yrxu"]
 [ext_resource type="Texture2D" uid="uid://jh0j8a4bqu6x" path="res://game/assets/backgrounds/back.png" id="2_x4urk"]
 [ext_resource type="Texture2D" uid="uid://bv27t82h7kb4r" path="res://game/assets/backgrounds/middle.png" id="3_1q867"]
 [ext_resource type="Texture2D" uid="uid://c28pntj6aq8n0" path="res://game/assets/backgrounds/Nature Landscapes Free Pixel Art/nature_1/2.png" id="4_av4ma"]
 [ext_resource type="Texture2D" uid="uid://ha0ey24gs2qk" path="res://game/assets/backgrounds/Nature Landscapes Free Pixel Art/nature_4/2.png" id="5_e8ll6"]
 
 [node name="VillageBG" type="ParallaxBackground"]
-script = ExtResource("1_0yrxu")
 
 [node name="Background" type="ParallaxLayer" parent="."]
 position = Vector2(1, 0)
@@ -21,6 +19,7 @@ centered = false
 
 [node name="Midground" type="ParallaxLayer" parent="."]
 position = Vector2(1, 0)
+motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(926, 0)
 
 [node name="Mountain1" type="Sprite2D" parent="Midground"]

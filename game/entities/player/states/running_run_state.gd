@@ -21,6 +21,13 @@ func process_physics(delta) -> State:
 	parent.velocity.y += gravity * delta
 	parent.move_and_slide()
 
+	## Handle transitions
+	if !parent.is_on_floor():
+		transitioned.emit("FallingRunState", self)
+	else:
+		if horizontal_direction == 0:
+			transitioned.emit("IdlingRunState", self)
+
 	## Handle horizontal velocity
 	if horizontal_direction != 0:
 		parent.velocity.x = horizontal_direction * run_speed
@@ -28,9 +35,5 @@ func process_physics(delta) -> State:
 	## Handle slowing down after releasing input
 	if horizontal_direction == 0:
 		parent.velocity.x = lerp(parent.velocity.x, 0.0, 0.8)
-
-	## Handle transitions
-	if parent.velocity.x == 0:
-		transitioned.emit("IdlingRunState", self)
 
 	return null

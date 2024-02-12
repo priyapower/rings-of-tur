@@ -21,7 +21,7 @@ func process_input(event: InputEvent) -> State:
 
 func process_physics(delta) -> State:
 	## Save if player inputs "up" command
-	var is_jump_just_pressed: bool = move_component.wants_upward_movement()
+	var is_jump_just_pressed: bool = move_component.is_upward_movement()
 
 	## Add gravity and movement
 	parent.velocity.y += gravity * delta

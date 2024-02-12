@@ -25,14 +25,14 @@ func process_physics(delta) -> State:
 	parent.velocity.y += gravity * delta
 	parent.move_and_slide()
 
+	## Handle transitions
+	if parent.is_on_floor():
+		transitioned.emit("IdlingJumpState", self)
+
 	## Handle horizontal velocity
 	if horizontal_direction != 0:
 		parent.velocity.x = horizontal_direction * (run_speed * fall_velocity_scale)
 	else:
 		parent.velocity.x = 0
-
-	## Handle transitions
-	if parent.is_on_floor():
-		transitioned.emit("IdlingJumpState", self)
 
 	return null
